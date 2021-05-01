@@ -1,0 +1,8 @@
+.github/
+.vscode/
+node_modules/
+.editorconfig
+.gitignore
+.travis.yml
+*.md
+LICENSE
