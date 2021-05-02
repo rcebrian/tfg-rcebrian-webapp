@@ -6,10 +6,8 @@ import { of as observableOf } from 'rxjs';
 
 import { throwIfAlreadyLoaded } from './module-import-guard';
 import {
-  AnalyticsService,
   LayoutService,
   PlayerService,
-  SeoService,
   StateService,
 } from './utils';
 import { UserData } from './data/users';
@@ -27,7 +25,6 @@ import { TemperatureHumidityData } from './data/temperature-humidity';
 import { SolarData } from './data/solar';
 import { TrafficChartData } from './data/traffic-chart';
 import { StatsBarData } from './data/stats-bar';
-import { CountryOrderData } from './data/country-order';
 import { StatsProgressBarData } from './data/stats-progress-bar';
 import { VisitorsAnalyticsData } from './data/visitors-analytics';
 import { SecurityCamerasData } from './data/security-cameras';
@@ -47,7 +44,6 @@ import { TemperatureHumidityService } from './mock/temperature-humidity.service'
 import { SolarService } from './mock/solar.service';
 import { TrafficChartService } from './mock/traffic-chart.service';
 import { StatsBarService } from './mock/stats-bar.service';
-import { CountryOrderService } from './mock/country-order.service';
 import { StatsProgressBarService } from './mock/stats-progress-bar.service';
 import { VisitorsAnalyticsService } from './mock/visitors-analytics.service';
 import { SecurityCamerasService } from './mock/security-cameras.service';
@@ -87,7 +83,6 @@ const DATA_SERVICES = [
   { provide: SolarData, useClass: SolarService },
   { provide: TrafficChartData, useClass: TrafficChartService },
   { provide: StatsBarData, useClass: StatsBarService },
-  { provide: CountryOrderData, useClass: CountryOrderService },
   { provide: StatsProgressBarData, useClass: StatsProgressBarService },
   { provide: VisitorsAnalyticsData, useClass: VisitorsAnalyticsService },
   { provide: SecurityCamerasData, useClass: SecurityCamerasService },
@@ -138,10 +133,8 @@ export const NB_CORE_PROVIDERS = [
   {
     provide: NbRoleProvider, useClass: NbSimpleRoleProvider,
   },
-  AnalyticsService,
   LayoutService,
   PlayerService,
-  SeoService,
   StateService,
 ];
 
