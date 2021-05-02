@@ -10,9 +10,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AuthRoutingModule } from './auth-routing.module';
-import { nbAuthConfig } from '../../@core/config/auth.config';
 
-import { NbPasswordAuthStrategy, NbAuthModule, NbAuthToken, NbAuthJWTToken } from '@nebular/auth';
 import { NbAlertModule, NbButtonModule, NbCheckboxModule, NbInputModule } from '@nebular/theme';
 
 @NgModule({
@@ -25,28 +23,6 @@ import { NbAlertModule, NbButtonModule, NbCheckboxModule, NbInputModule } from '
     NbButtonModule,
     NbCheckboxModule,
     AuthRoutingModule,
-    NbAuthModule.forRoot({
-      strategies: [
-        NbPasswordAuthStrategy.setup({
-          name: 'email',
-          baseEndpoint: 'http://localhost:3001/api/auth',
-          token: {
-            class: NbAuthJWTToken,
-            key: 'data.accessToken'
-          },
-          login: {
-            // ...
-            endpoint: '/signIn',
-            method: 'post',
-            redirect: {
-              success: '/dashboard/',
-              failure: null,
-            },
-          },
-        }),
-      ],
-      forms: nbAuthConfig.forms,
-    }),
   ],
   declarations: [
   ],
