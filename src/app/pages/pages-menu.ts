@@ -138,10 +138,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Calendar Kit',
         link: '/pages/extra-components/calendar-kit',
       },
-      {
-        title: 'Chat',
-        link: '/pages/extra-components/chat',
-      },
     ],
   },
   {
