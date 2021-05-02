@@ -82,10 +82,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Typography',
         link: '/pages/ui-features/typography',
       },
-      {
-        title: 'Animated Searches',
-        link: '/pages/ui-features/search-fields',
-      },
     ],
   },
   {
@@ -111,32 +107,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'Tooltip',
         link: '/pages/modal-overlays/tooltip',
-      },
-    ],
-  },
-  {
-    title: 'Extra Components',
-    icon: 'message-circle-outline',
-    children: [
-      {
-        title: 'Calendar',
-        link: '/pages/extra-components/calendar',
-      },
-      {
-        title: 'Progress Bar',
-        link: '/pages/extra-components/progress-bar',
-      },
-      {
-        title: 'Spinner',
-        link: '/pages/extra-components/spinner',
-      },
-      {
-        title: 'Alert',
-        link: '/pages/extra-components/alert',
-      },
-      {
-        title: 'Calendar Kit',
-        link: '/pages/extra-components/calendar-kit',
       },
     ],
   },
