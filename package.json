@@ -15,8 +15,7 @@
     "build": "ng build",
     "build:prod": "npm run build -- --prod --aot",
     "lint": "ng lint",
-    "lint:fix": "ng lint ngx-admin-demo --fix",
-    "lint:ci": "npm run lint && npm run lint:styles",
+    "lint:fix": "ng lint tfg-rcebrian-webapp --fix",
     "postinstall": "ngcc --properties es2015 es5 browser module main --first-only --create-ivy-entry-points --tsconfig \"./src/tsconfig.app.json\""
   },
   "dependencies": {
