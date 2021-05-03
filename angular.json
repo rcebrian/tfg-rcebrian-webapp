@@ -137,10 +137,17 @@
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "ngx",
+      "skipTests": true,
       "style": "scss"
     },
     "@schematics/angular:directive": {
       "prefix": "ngx"
+    },
+    "@schematics/angular:guard": {
+      "skipTests": true
+    },
+    "@schematics/angular:service": {
+      "skipTests": true
     }
   },
   "cli": {
