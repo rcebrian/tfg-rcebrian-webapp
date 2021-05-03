@@ -19,7 +19,7 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
-import { AuthGuard } from "./@core/guards/auth-guard.service";
+import { AuthGuard } from "./@core/guards/auth.guard";
 
 @NgModule({
   declarations: [AppComponent],
