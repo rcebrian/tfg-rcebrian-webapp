@@ -19,7 +19,7 @@ export class RolesGuard implements CanActivate {
             if (authorizedRoles.indexOf(role) > -1) {
               return true;
             } else {
-              this.router.navigate(['pages/dashboard']);
+              this.router.navigate(['pages/profile']);
               return false;
             }
         }),

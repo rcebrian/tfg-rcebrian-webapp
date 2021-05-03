@@ -98,7 +98,7 @@ export const NB_CORE_PROVIDERS = [
           method: 'post',
           requireValidToken: true,
           redirect: {
-            success: '/dashboard/',
+            success: '/pages/profile',
             failure: null,
           },
           defaultMessages: ['You have been successfully logged in.'],
