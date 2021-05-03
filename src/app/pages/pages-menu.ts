@@ -18,6 +18,22 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/profile',
   },
   {
+    title: 'Management',
+    icon: 'briefcase-outline',
+    link: '/pages/management',
+    children: [
+      {
+        title: 'Companies',
+        link: '/pages/management/company',
+        icon: 'home-outline',
+      },
+      {
+        title: 'Icons',
+        link: '/pages/management/icons',
+      },
+    ],
+  },
+  {
     title: 'FEATURES',
     group: true,
   },

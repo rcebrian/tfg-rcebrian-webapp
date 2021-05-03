@@ -8,6 +8,7 @@ import { ECommerceModule } from './e-commerce/e-commerce.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { ProfileModule } from "./profile/profile.module";
+import { ManagementModule } from "./management/management.module";
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { ProfileModule } from "./profile/profile.module";
     ECommerceModule,
     MiscellaneousModule,
     ProfileModule,
+    ManagementModule,
   ],
   declarations: [
     PagesComponent,
