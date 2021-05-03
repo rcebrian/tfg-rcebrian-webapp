@@ -24,6 +24,11 @@ const routes: Routes = [{
         .then(m => m.LayoutModule),
     },
     {
+      path: 'profile',
+      loadChildren: () => import('./profile/profile.module')
+        .then(m => m.ProfileModule),
+    },
+    {
       path: 'forms',
       loadChildren: () => import('./forms/forms.module')
         .then(m => m.FormsModule),
