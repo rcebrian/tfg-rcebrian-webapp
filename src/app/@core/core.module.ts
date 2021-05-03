@@ -96,10 +96,12 @@ export const NB_CORE_PROVIDERS = [
         login: {
           endpoint: environment.auth.signIn,
           method: 'post',
+          requireValidToken: true,
           redirect: {
             success: '/dashboard/',
             failure: null,
           },
+          defaultMessages: ['You have been successfully logged in.'],
         },
       }),
     ],
