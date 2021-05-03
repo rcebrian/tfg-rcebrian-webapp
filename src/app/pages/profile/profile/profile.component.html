@@ -1,71 +1,11 @@
 <div class="row">
   <div class="col">
-    <nb-card>
-      <nb-card-header>My profile</nb-card-header>
-      <nb-card-body>
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label for="inputFirstName" class="label">First Name</label>
-              <input type="text" nbInput fullWidth id="inputFirstName" placeholder="First Name">
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label for="inputLastName" class="label">Last Name</label>
-              <input type="text" nbInput fullWidth id="inputLastName" placeholder="Last Name">
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label for="inputEmail" class="label">Email</label>
-              <input type="email" nbInput fullWidth id="inputEmail" placeholder="Email">
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label for="inputWebsite" class="label">Website</label>
-              <input type="text" nbInput fullWidth id="inputWebsite" placeholder="Website">
-            </div>
-          </div>
-        </div>
-        <button type="submit" nbButton>Submit</button>
-      </nb-card-body>
-    </nb-card>
+    <ngx-edit-info></ngx-edit-info>
   </div>
 </div>
-
 <div class="row">
   <div class="col">
-    <nb-card>
-      <nb-card-header>Change my password</nb-card-header>
-      <nb-card-body>
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="form-group">
-              <label for="inputOldPassword" class="label">Old password</label>
-              <input type="text" nbInput fullWidth id="inputOldPassword" placeholder="Old password" [(ngModel)]="inputOldPassword">
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="form-group">
-              <label for="inputNewPassword" class="label">New Password</label>
-              <input type="text" nbInput fullWidth id="inputNewPassword" placeholder="New password" [(ngModel)]="inputNewPassword">
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="form-group">
-              <label for="inputRepeatNewPassword" class="label">Repeat password</label>
-              <input type="text" nbInput fullWidth id="inputRepeatNewPassword" placeholder="Repeat new password" [(ngModel)]="inputRepeatNewPassword">
-            </div>
-          </div>
-        </div>
-        <button type="submit" nbButton (click)="submitPassword()">Submit</button>
-      </nb-card-body>
-    </nb-card>
+    <ngx-change-password></ngx-change-password>
   </div>
 </div>
-
 
