@@ -20,6 +20,7 @@ import {
   NbWindowModule,
 } from '@nebular/theme';
 import { AuthGuard } from "./@core/guards/auth.guard";
+import { RolesGuard } from "./@core/guards/roles.guard";
 
 @NgModule({
   declarations: [AppComponent],
@@ -39,6 +40,7 @@ import { AuthGuard } from "./@core/guards/auth.guard";
   ],
   providers: [
     AuthGuard,
+    RolesGuard,
   ],
   bootstrap: [AppComponent],
 })
