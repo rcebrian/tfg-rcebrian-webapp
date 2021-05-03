@@ -20,6 +20,8 @@ import {
   NbUserModule
 } from "@nebular/theme";
 import { ThemeModule } from "../../@theme/theme.module";
+import { ChangePasswordComponent } from './profile/change-password/change-password.component';
+import { EditInfoComponent } from './profile/edit-info/edit-info.component';
 
 
 @NgModule({
@@ -44,6 +46,8 @@ import { ThemeModule } from "../../@theme/theme.module";
   ],
   declarations: [
     ProfileComponent,
+    ChangePasswordComponent,
+    EditInfoComponent,
   ],
 })
 export class ProfileModule {
