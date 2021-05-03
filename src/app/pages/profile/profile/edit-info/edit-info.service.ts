@@ -5,7 +5,10 @@ import { environment } from "../../../../../environments/environment";
 import { NbAuthJWTToken, NbAuthService } from "@nebular/auth";
 import { User } from "../../../../@core/models/user";
 import { map } from 'rxjs/operators'
-import { ResponseDto } from "../../../../@core/models/response-dto";
+
+export interface ResponseDto {
+  data: User;
+}
 
 @Injectable({
   providedIn: 'root'
