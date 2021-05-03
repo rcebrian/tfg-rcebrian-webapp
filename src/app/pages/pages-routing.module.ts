@@ -39,11 +39,6 @@ const routes: Routes = [{
         .then(m => m.ModalOverlaysModule),
     },
     {
-      path: 'charts',
-      loadChildren: () => import('./charts/charts.module')
-        .then(m => m.ChartsModule),
-    },
-    {
       path: 'tables',
       loadChildren: () => import('./tables/tables.module')
         .then(m => m.TablesModule),
