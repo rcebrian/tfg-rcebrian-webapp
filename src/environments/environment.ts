@@ -9,13 +9,18 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 const authBase = `http://localhost:3000/api/auth`;
+const usersBase = `http://localhost:3001/api/users`;
 
 export const environment = {
   production: false,
 
   authBase: authBase,
+  usersBase: usersBase,
 
   auth: {
     signIn: `/signIn`,
+  },
+  users: {
+    getUserInfo: `${usersBase}/:id`
   }
 };
