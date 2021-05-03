@@ -19,9 +19,8 @@ export class EditInfoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.editInfoService.getUserInfo().subscribe((data) => {
-      this.user = data;
-      console.log(this.user)
+    this.editInfoService.getUserInfo().subscribe((user) => {
+      this.user = user;
     })
   }
 

@@ -5,10 +5,12 @@ import { environment } from "../../../../../environments/environment";
 import { NbAuthJWTToken, NbAuthService } from "@nebular/auth";
 import { User } from "../../../../@core/models/user";
 import { map } from 'rxjs/operators'
+import { ResponseDto } from "../../../../@core/models/response-dto";
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class EditInfoService {
 
   userId: any;
@@ -17,26 +19,20 @@ export class EditInfoService {
     authService.onTokenChange()
       .subscribe((token: NbAuthJWTToken) => {
         if (token.isValid()) {
-          this.userId = token.getPayload()['id']; // here we receive a payload from the token and assigns it to our `user` variable
+          this.userId = token.getPayload()['id'];
         }
       });
   }
 
   getUserInfo(): Observable<User> {
     const url = `${environment.users.getUserInfo.replace(':id', this.userId)}`
-    return this.httpClient.get<User>(url);
+    return this.httpClient.get<ResponseDto>(url)
+      .pipe(map(res => {
+        return <User> {
+          id: res.data.id,
+          email: res.data.email,
+          ...res.data
+        }
+      }));
   }
-  // getLocation(locationId: string): Observable<LocationDTO> {
-  //   return this.httpClient.get<Location>(`${this._BASE_URI}/${locationId}`)
-  //     .pipe(map(location => {
-  //       let loc = location;
-  //       return <LocationDTO> {
-  //         name: loc.name,
-  //         id: loc.id,
-  //         type: loc.type,
-  //         dimension: loc.dimension,
-  //         residents: location.residents.length
-  //       }
-  //     }));
-  // }
 }
