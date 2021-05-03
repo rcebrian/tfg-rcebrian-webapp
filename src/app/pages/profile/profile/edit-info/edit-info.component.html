@@ -5,13 +5,13 @@
       <div class="col-sm-6">
         <div class="form-group">
           <label for="inputFirstName" class="label">First Name</label>
-          <input type="text" nbInput fullWidth id="inputFirstName" placeholder="First Name">
+          <input type="text" nbInput fullWidth id="inputFirstName" placeholder="{{user?.firstName}}">
         </div>
       </div>
       <div class="col-sm-6">
         <div class="form-group">
           <label for="inputLastName" class="label">Last Name</label>
-          <input type="text" nbInput fullWidth id="inputLastName" placeholder="Last Name">
+          <input type="text" nbInput fullWidth id="inputLastName" placeholder="{{user?.lastName}}">
         </div>
       </div>
     </div>
@@ -19,13 +19,33 @@
       <div class="col-sm-6">
         <div class="form-group">
           <label for="inputEmail" class="label">Email</label>
-          <input type="email" nbInput fullWidth id="inputEmail" placeholder="Email">
+          <input type="email" nbInput fullWidth id="inputEmail" placeholder="{{user?.email}}">
         </div>
       </div>
       <div class="col-sm-6">
         <div class="form-group">
-          <label for="inputWebsite" class="label">Website</label>
-          <input type="text" nbInput fullWidth id="inputWebsite" placeholder="Website">
+          <label for="inputPhone" class="label">Mobile phone</label>
+          <input type="tel" nbInput fullWidth id="inputPhone" placeholder="{{user?.phone}}">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="inputAddress" class="label">Address</label>
+          <input type="text" nbInput fullWidth id="inputAddress" placeholder="{{user?.address}}">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="inputCountry" class="label">Country</label>
+          <input type="text" nbInput fullWidth id="inputCountry" placeholder="{{user?.country}}">
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="inputPostalCode" class="label">Postal Code</label>
+          <input type="number" nbInput fullWidth id="inputPostalCode" placeholder="{{user?.postalCode}}">
         </div>
       </div>
     </div>
