@@ -14,6 +14,7 @@ import {
   NbRequestPasswordComponent,
   NbResetPasswordComponent,
 } from '@nebular/auth';
+import { AuthGuard } from "../../@core/guards/auth-guard.service";
 
 export const routes: Routes = [
   {
@@ -30,6 +31,7 @@ export const routes: Routes = [
       },
       {
         path: 'logout',
+        canActivate: [AuthGuard],
         component: NbLogoutComponent,
       },
       {
