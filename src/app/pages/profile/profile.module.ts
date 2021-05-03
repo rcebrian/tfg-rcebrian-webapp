@@ -7,10 +7,19 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule as ngFormsModule, FormsModule } from '@angular/forms';
 import { ProfileRoutingModule } from "./profile-routing.module";
 
 import { ProfileComponent } from "./profile/profile.component";
+import {
+  NbActionsModule,
+  NbButtonModule,
+  NbCardModule,
+  NbCheckboxModule, NbDatepickerModule, NbIconModule,
+  NbInputModule, NbRadioModule, NbSelectModule,
+  NbUserModule
+} from "@nebular/theme";
+import { ThemeModule } from "../../@theme/theme.module";
 
 
 @NgModule({
@@ -18,6 +27,19 @@ import { ProfileComponent } from "./profile/profile.component";
     CommonModule,
     HttpClientModule,
     FormsModule,
+    NbCardModule,
+    ThemeModule,
+    NbInputModule,
+    NbCardModule,
+    NbButtonModule,
+    NbActionsModule,
+    NbUserModule,
+    NbCheckboxModule,
+    NbRadioModule,
+    NbDatepickerModule,
+    NbSelectModule,
+    NbIconModule,
+    ngFormsModule,
     ProfileRoutingModule,
   ],
   declarations: [
