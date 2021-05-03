@@ -6,7 +6,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AppComponent } from './app.component';
@@ -21,6 +21,7 @@ import {
 } from '@nebular/theme';
 import { AuthGuard } from "./@core/guards/auth.guard";
 import { RolesGuard } from "./@core/guards/roles.guard";
+import { JWTInterceptorService } from "./@core/services/jwt-interceptor.service";
 
 @NgModule({
   declarations: [AppComponent],
@@ -41,6 +42,11 @@ import { RolesGuard } from "./@core/guards/roles.guard";
   providers: [
     AuthGuard,
     RolesGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JWTInterceptorService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent],
 })
