@@ -12,7 +12,6 @@ export class RolesGuard implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const authorizedRoles = route.data.roles as Array<string>;
-    console.log(authorizedRoles);
     return this.authService.onTokenChange()
       .pipe(
         map((token: NbAuthJWTToken) => {
