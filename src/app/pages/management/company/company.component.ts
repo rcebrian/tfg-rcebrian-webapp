@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CompanyService } from "./company.service";
 import { CompanyDto } from "../../../@core/models/dto/company-dto";
 import { LocalDataSource } from "ng2-smart-table";
+import { CompanyForm } from "../../../@core/models/form/company-form";
 
 @Component({
   selector: 'ngx-company',
@@ -19,14 +20,17 @@ export class CompanyComponent implements OnInit {
       cancelButtonContent: '<i class="nb-close"></i>',
       confirmCreate: true,
     },
+    edit: {
+      editButtonContent: '<i class="nb-edit"></i>',
+      saveButtonContent: '<i class="nb-checkmark"></i>',
+      cancelButtonContent: '<i class="nb-close"></i>',
+      confirmSave: true,
+    },
     delete: {
       deleteButtonContent: '<i class="nb-trash"></i>',
       saveButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
       confirmDelete: true,
-    },
-    actions: {
-      edit: false,
     },
     columns: {
       id: {
@@ -66,6 +70,14 @@ export class CompanyComponent implements OnInit {
       } else {
         event.confirm.reject();
       }
+    })
+  }
+
+  onSaveConfirm(event): void {
+    const { id } = event.data;
+    const editedCompany: CompanyForm = {name: event.newData.name, description: event.newData.description};
+    this.companyService.putCompany(id, editedCompany).subscribe(() => {
+      event.confirm.resolve();
     })
   }
 

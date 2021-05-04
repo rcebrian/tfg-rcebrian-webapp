@@ -27,6 +27,11 @@ export class CompanyService {
     return this.httpClient.post(url, newCompany);
   }
 
+  putCompany(companyId: number, newCompany: CompanyForm): Observable<any> {
+    const url = `${environment.companies.putCompany.replace(':id', String(companyId))}`;
+    return this.httpClient.put(url, newCompany);
+  }
+
   deleteCompany(companyId: number): Observable<any> {
     const url = `${environment.companies.deleteCompany.replace(':id', String(companyId))}`;
     return this.httpClient.delete(url);
