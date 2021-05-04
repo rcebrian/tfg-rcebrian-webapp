@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { NbAuthJWTToken, NbAuthService } from "@nebular/auth";
 import { Observable } from "rxjs";
 import { environment } from "../../../../environments/environment";
-import { map } from "rxjs/operators";
 import { Company } from "../../../@core/models/company";
+import { map } from "rxjs-compat/operator/map";
 
 interface ResponseDto {
-  data: Company;
+  data: Array<Company>;
 }
 
 @Injectable({
@@ -15,23 +14,11 @@ interface ResponseDto {
 })
 export class CompanyService {
 
-  bearer: any;
+  constructor(private httpClient: HttpClient) { }
 
-  constructor(private authService: NbAuthService ,private httpClient: HttpClient) {
-    authService.onTokenChange()
-      .subscribe((token: NbAuthJWTToken) => {
-          this.bearer = token.getPayload();
-      });
-  }
-
-  getAllCompanies(): Observable<Company> {
+  // https://stackoverflow.com/questions/46700055/angular-httpclient-map-get-method-object-result-to-array-property
+  getAllCompanies(): Observable<ResponseDto> {
     const url = `${environment.companies.getAllCompanies}`
-    return this.httpClient.get<ResponseDto>(url)
-      .pipe(map(res => {
-        return <Company> {
-          id: res.data.id,
-          ...res.data
-        }
-      }));
+    return this.httpClient.get<ResponseDto>(url);
   }
 }
