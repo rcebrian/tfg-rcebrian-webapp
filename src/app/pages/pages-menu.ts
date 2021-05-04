@@ -21,6 +21,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/management/users',
         icon: 'people-outline',
       },
+      {
+        title: 'Tree Grid',
+        link: '/pages/management/tree-grid',
+      },
     ],
   },
   {
@@ -128,10 +132,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'Smart Table',
         link: '/pages/tables/smart-table',
-      },
-      {
-        title: 'Tree Grid',
-        link: '/pages/tables/tree-grid',
       },
     ],
   },
