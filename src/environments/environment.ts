@@ -25,6 +25,8 @@ export const environment = {
     getUserInfo: `${usersBase}/:id`
   },
   companies: {
+    getTreeAllCompanies: `${companyBase}/tree`,
+    getTreeCompany: `${companyBase}/:companyId/tree`,
     getAllCompanies: `${companyBase}/`,
     postNewCompany: `${companyBase}/`,
     putCompany: `${companyBase}/:id`,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from "./users.service";
 
 @Component({
   selector: 'ngx-users',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersComponent implements OnInit {
 
-  constructor() { }
+  companies: any;
+
+  constructor(private usersService: UsersService) { }
 
   ngOnInit(): void {
+    this.usersService.getTreeAllCompanies().subscribe((res) => {
+      const { data } = res;
+      this.companies = data;
+      console.log(data)
+    })
   }
 
 }
