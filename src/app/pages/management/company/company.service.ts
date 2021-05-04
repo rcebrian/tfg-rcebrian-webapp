@@ -3,7 +3,6 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { environment } from "../../../../environments/environment";
 import { Company } from "../../../@core/models/company";
-import { map } from "rxjs-compat/operator/map";
 
 interface ResponseDto {
   data: Array<Company>;
@@ -18,7 +17,7 @@ export class CompanyService {
 
   // https://stackoverflow.com/questions/46700055/angular-httpclient-map-get-method-object-result-to-array-property
   getAllCompanies(): Observable<ResponseDto> {
-    const url = `${environment.companies.getAllCompanies}`
+    const url = `${environment.companies.getAllCompanies}`;
     return this.httpClient.get<ResponseDto>(url);
   }
 }
