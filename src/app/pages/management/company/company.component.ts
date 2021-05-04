@@ -19,19 +19,15 @@ export class CompanyComponent implements OnInit {
       cancelButtonContent: '<i class="nb-close"></i>',
       confirmCreate: true,
     },
-    edit: {
-      editButtonContent: '<i class="nb-edit"></i>',
-      saveButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-      confirmEdit: true,
-    },
     delete: {
       deleteButtonContent: '<i class="nb-trash"></i>',
       saveButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
       confirmDelete: true,
     },
-
+    actions: {
+      edit: false,
+    },
     columns: {
       id: {
         title: 'ID',
@@ -57,12 +53,6 @@ export class CompanyComponent implements OnInit {
 
   constructor(private companyService: CompanyService) { }
 
-  onDeleteConfirm(event): void {
-    this.companyService.deleteCompany(event.data.id).subscribe(() => {
-      event.confirm.resolve();
-    })
-  }
-
   onCreateConfirm(event) {
     const company: any = event.newData;
 
@@ -76,6 +66,12 @@ export class CompanyComponent implements OnInit {
       } else {
         event.confirm.reject();
       }
+    })
+  }
+
+  onDeleteConfirm(event): void {
+    this.companyService.deleteCompany(event.data.id).subscribe(() => {
+      event.confirm.resolve();
     })
   }
 
