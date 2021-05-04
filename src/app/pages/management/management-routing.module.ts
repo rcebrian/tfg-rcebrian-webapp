@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ManagementComponent } from './management.component';
-import { IconsComponent } from './icons/icons.component';
 import { CompanyComponent } from "./company/company.component";
 import { RolesGuard } from "../../@core/guards/roles.guard";
+import { UsersComponent } from "./users/users.component";
 
 const routes: Routes = [{
   path: '',
@@ -17,8 +17,8 @@ const routes: Routes = [{
       component: CompanyComponent,
     },
     {
-      path: 'icons',
-      component: IconsComponent,
+      path: 'users',
+      component: UsersComponent,
     }
     ],
 }];

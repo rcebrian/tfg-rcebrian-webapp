@@ -17,8 +17,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
         icon: 'home-outline',
       },
       {
-        title: 'Icons',
-        link: '/pages/management/icons',
+        title: 'Users',
+        link: '/pages/management/users',
+        icon: 'people-outline',
       },
     ],
   },

@@ -4,13 +4,9 @@ import { NbAlertModule, NbCardModule, NbIconModule, NbPopoverModule, NbSearchMod
 import { ThemeModule } from '../../@theme/theme.module';
 import { ManagementRoutingModule } from './management-routing.module';
 import { ManagementComponent } from './management.component';
-import { IconsComponent } from './icons/icons.component';
 import { CompanyComponent } from './company/company.component';
 import { Ng2SmartTableModule } from "ng2-smart-table";
-
-const components = [
-
-];
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   imports: [
@@ -26,7 +22,7 @@ const components = [
   declarations: [
     ManagementComponent,
     CompanyComponent,
-    IconsComponent,
+    UsersComponent,
   ],
 })
 export class ManagementModule { }
