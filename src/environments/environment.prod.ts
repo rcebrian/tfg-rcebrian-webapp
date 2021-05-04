@@ -20,7 +20,11 @@ export const environment = {
     getUserInfo: `${usersBase}/:id`
   },
   companies: {
-    getAllCompanies: `${companyBase}/`
+    getAllCompanies: `${companyBase}/`,
+    postNewCompany: `${companyBase}/`,
+    putCompany: `${companyBase}/:id`,
+    deleteCompany: `${companyBase}/:id`,
   }
 };
+
 

@@ -27,6 +27,7 @@ export const environment = {
   companies: {
     getAllCompanies: `${companyBase}/`,
     postNewCompany: `${companyBase}/`,
+    putCompany: `${companyBase}/:id`,
     deleteCompany: `${companyBase}/:id`,
   }
 };
