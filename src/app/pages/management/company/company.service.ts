@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { environment } from "../../../../environments/environment";
-import { Company } from "../../../@core/models/company";
+import { CompanyDto } from "../../../@core/models/dto/company-dto";
+import { CompanyForm } from "../../../@core/models/form/company-form";
 
 interface ResponseDto {
-  data: Array<Company>;
+  data: Array<CompanyDto>;
 }
 
 @Injectable({
@@ -19,5 +20,15 @@ export class CompanyService {
   getAllCompanies(): Observable<ResponseDto> {
     const url = `${environment.companies.getAllCompanies}`;
     return this.httpClient.get<ResponseDto>(url);
+  }
+
+  postNewCompany(newCompany: CompanyForm): Observable<any> {
+    const url = `${environment.companies.postNewCompany}`;
+    return this.httpClient.post(url, newCompany);
+  }
+
+  deleteCompany(companyId: number): Observable<any> {
+    const url = `${environment.companies.deleteCompany.replace(':id', String(companyId))}`;
+    return this.httpClient.delete(url);
   }
 }

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CompanyService } from "./company.service";
-import { Company } from "../../../@core/models/company";
+import { CompanyDto } from "../../../@core/models/dto/company-dto";
 import { LocalDataSource } from "ng2-smart-table";
-import { SmartTableData } from "../../../@core/data/smart-table";
 
 @Component({
   selector: 'ngx-company',
@@ -11,27 +10,34 @@ import { SmartTableData } from "../../../@core/data/smart-table";
 })
 export class CompanyComponent implements OnInit {
 
-  companies: Company[];
+  companies: CompanyDto[];
 
   settings = {
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
+      confirmCreate: true,
     },
     edit: {
       editButtonContent: '<i class="nb-edit"></i>',
       saveButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
+      confirmEdit: true,
     },
     delete: {
       deleteButtonContent: '<i class="nb-trash"></i>',
+      saveButtonContent: '<i class="nb-checkmark"></i>',
+      cancelButtonContent: '<i class="nb-close"></i>',
       confirmDelete: true,
     },
+
     columns: {
       id: {
         title: 'ID',
         type: 'number',
+        editable: false,
+        addable: false,
       },
       name: {
         title: 'Name',
@@ -40,29 +46,43 @@ export class CompanyComponent implements OnInit {
       description: {
         title: 'Description',
         type: 'string',
+        editor: {
+          type: 'textarea'
+        },
       },
     },
   };
 
   source: LocalDataSource = new LocalDataSource();
 
-  constructor(private companyService: CompanyService, private service: SmartTableData) {
-    const data = this.service.getData();
-  }
+  constructor(private companyService: CompanyService) { }
 
   onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
+    this.companyService.deleteCompany(event.data.id).subscribe(() => {
       event.confirm.resolve();
-    } else {
-      event.confirm.reject();
-    }
+    })
+  }
+
+  onCreateConfirm(event) {
+    const company: any = event.newData;
+
+    this.companyService.postNewCompany({
+      name: company.name,
+      description: company.description
+    }).subscribe(res => {
+      if (res.data) {
+        event.newData['id'] = res.data.id;
+        event.confirm.resolve(event.newData);
+      } else {
+        event.confirm.reject();
+      }
+    })
   }
 
   ngOnInit(): void {
     this.companyService.getAllCompanies().subscribe((res) => {
       const { data } = res;
       this.companies = data;
-      data.forEach(company => console.log(company))
       this.source.load(this.companies);
     })
   }

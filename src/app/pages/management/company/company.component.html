@@ -1,11 +1,11 @@
-<p>company works!</p>
-<div *ngFor="let company of companies">
-  <p>{{ company | json }}</p>
-</div>
 <nb-card>
   <nb-card-header>Companies</nb-card-header>
   <nb-card-body>
-    <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+    <ng2-smart-table
+      [settings]="settings"
+      [source]="source"
+      (createConfirm)="onCreateConfirm($event)"
+      (deleteConfirm)="onDeleteConfirm($event)">
     </ng2-smart-table>
   </nb-card-body>
 </nb-card>
