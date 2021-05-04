@@ -17,13 +17,14 @@ export const MENU_ITEMS: NbMenuItem[] = [
         icon: 'home-outline',
       },
       {
-        title: 'Users',
-        link: '/pages/management/users',
+        title: 'Groups',
+        link: '/pages/management/groups',
         icon: 'people-outline',
       },
       {
-        title: 'Tree Grid',
-        link: '/pages/management/tree-grid',
+        title: 'Users',
+        link: '/pages/management/users',
+        icon: 'people-outline',
       },
     ],
   },

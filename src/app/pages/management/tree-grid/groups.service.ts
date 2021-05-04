@@ -6,7 +6,7 @@ import { environment } from "../../../../environments/environment";
 @Injectable({
   providedIn: 'root'
 })
-export class TreeGridService {
+export class GroupsService {
 
   constructor(private httpClient: HttpClient) { }
 

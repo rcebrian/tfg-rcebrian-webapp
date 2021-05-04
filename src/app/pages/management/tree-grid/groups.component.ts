@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NbSortDirection, NbSortRequest, NbTreeGridDataSource, NbTreeGridDataSourceBuilder } from '@nebular/theme';
-import { TreeGridService } from "./tree-grid.service";
+import { GroupsService } from "./groups.service";
 
 interface TreeNode<T> {
   data: T;
@@ -17,12 +17,12 @@ interface FSEntry {
 
 @Component({
   selector: 'ngx-tree-grid',
-  templateUrl: './tree-grid.component.html',
-  styleUrls: ['./tree-grid.component.scss'],
+  templateUrl: './groups.component.html',
+  styleUrls: ['./groups.component.scss'],
 })
-export class TreeGridComponent {
+export class GroupsComponent {
   customColumn = 'name';
-  defaultColumns = [ 'description', 'kind', 'id' ];
+  defaultColumns = [ 'description', 'kind' ];
   allColumns = [ this.customColumn, ...this.defaultColumns ];
 
   companies: any;
@@ -32,7 +32,7 @@ export class TreeGridComponent {
   sortColumn: string;
   sortDirection: NbSortDirection = NbSortDirection.NONE;
 
-  constructor(private dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>, private treeGridService: TreeGridService) {
+  constructor(private dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>, private treeGridService: GroupsService) {
     this.treeGridService.getCompaniesTree().subscribe(res => {
       this.dataSource = this.dataSourceBuilder.create(res);
     });

@@ -1,8 +1,11 @@
 <nb-card>
   <nb-card-body>
 
-    <label class="search-label" for="search">Search:</label>
-    <input nbInput [nbFilterInput]="dataSource" id="search" class="search-input">
+    <nb-form-field>
+      <nb-icon nbPrefix icon="search-outline" pack="eva"></nb-icon>
+      <!-- <label class="search-label" for="search">Search:</label> -->
+      <input nbInput [nbFilterInput]="dataSource" id="search" >
+    </nb-form-field>
 
     <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" (sort)="updateSort($event)">
 

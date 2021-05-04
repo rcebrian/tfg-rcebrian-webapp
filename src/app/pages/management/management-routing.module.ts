@@ -5,7 +5,7 @@ import { ManagementComponent } from './management.component';
 import { CompanyComponent } from "./company/company.component";
 import { RolesGuard } from "../../@core/guards/roles.guard";
 import { UsersComponent } from "./users/users.component";
-import { TreeGridComponent } from "./tree-grid/tree-grid.component";
+import { GroupsComponent } from "./tree-grid/groups.component";
 import { TablesComponent } from "../tables/tables.component";
 import { SmartTableComponent } from "../tables/smart-table/smart-table.component";
 
@@ -24,8 +24,8 @@ const routes: Routes = [{
       component: UsersComponent,
     },
     {
-      path: 'tree-grid',
-      component: TreeGridComponent,
+      path: 'groups',
+      component: GroupsComponent,
     },
     ],
 }];
@@ -37,5 +37,5 @@ const routes: Routes = [{
 export class ManagementRoutingModule { }
 
 export const routedComponents = [
-  TreeGridComponent,
+  GroupsComponent,
 ];
