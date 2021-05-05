@@ -5,7 +5,7 @@ import { ManagementComponent } from './management.component';
 import { CompanyComponent } from "./company/company.component";
 import { RolesGuard } from "../../@core/guards/roles.guard";
 import { GroupsComponent } from "./groups/groups.component";
-import { GroupComponent } from "./group/group.component";
+import { GroupComponent } from "./groups/group/group.component";
 
 const routes: Routes = [{
   path: '',

@@ -16,7 +16,7 @@ import { Ng2SmartTableModule } from "ng2-smart-table";
 import { FsIconComponent } from "./groups/groups.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { GroupsComponent } from "./groups/groups.component";
-import { GroupComponent, UserIconComponent } from './group/group.component';
+import { GroupComponent, UserIconComponent } from './groups/group/group.component';
 
 @NgModule({
   imports: [
