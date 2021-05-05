@@ -37,17 +37,22 @@ export class GroupsComponent implements OnInit {
   sortDirection: NbSortDirection = NbSortDirection.NONE;
 
   constructor(private dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>, private groupsService: GroupsService) {
+    this.getTreeData();
+  }
+
+  getTreeData = () => {
     this.groupsService.getCompaniesTree().subscribe(res => {
       this.dataSource = this.dataSourceBuilder.create(res);
     });
   }
 
-  submitNewGroup() {
+  submitNewGroup = () => {
     this.groupsService.postNewGroup({
       companyId: this.companyId.value,
       name: this.name.value,
       description: this.description.value
     }).subscribe(() => {
+      this.getTreeData();
     })
   }
 
