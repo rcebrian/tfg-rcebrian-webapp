@@ -33,7 +33,8 @@ export const environment = {
     deleteCompany: `${companyBase}/:id`,
   },
   groups: {
-    postNewGroup: `${companyBase}/:companyId/groups`,
+    postNewGroup: `${companyBase}/groups`,
+    getTreeGroup: `${companyBase}/groups/:groupId`
   }
 
 };

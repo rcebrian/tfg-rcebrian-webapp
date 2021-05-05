@@ -3,6 +3,7 @@ import { NbSortDirection, NbSortRequest, NbTreeGridDataSource, NbTreeGridDataSou
 import { GroupsService } from "./groups.service";
 import { CompanyDto } from "../../../@core/models/dto/company-dto";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 
 interface TreeNode<T> {
   data: T;
@@ -35,7 +36,7 @@ export class GroupsComponent implements OnInit {
   sortColumn: string;
   sortDirection: NbSortDirection = NbSortDirection.NONE;
 
-  constructor(private dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>, private groupsService: GroupsService) {
+  constructor(private dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>, private groupsService: GroupsService, private router: Router) {
     this.getTreeData();
   }
 
@@ -94,8 +95,8 @@ export class GroupsComponent implements OnInit {
 
   isGroup = (kind: string) => kind === 'group';
 
-  sout2(id) {
-    console.log(id)
+  navigateToGroup(id) {
+    this.router.navigate(['/pages/management/groups/'.concat(String(id))])
   }
 
   get name() { return this.groupForm.get('name'); }

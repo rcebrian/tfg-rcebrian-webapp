@@ -5,6 +5,7 @@ import { ManagementComponent } from './management.component';
 import { CompanyComponent } from "./company/company.component";
 import { RolesGuard } from "../../@core/guards/roles.guard";
 import { GroupsComponent } from "./groups/groups.component";
+import { GroupComponent } from "./group/group.component";
 
 const routes: Routes = [{
   path: '',
@@ -19,6 +20,10 @@ const routes: Routes = [{
     {
       path: 'groups',
       component: GroupsComponent,
+    },
+    {
+      path: 'groups/:groupId',
+      component: GroupComponent,
     },
     ],
 }];

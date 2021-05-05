@@ -16,6 +16,7 @@ import { Ng2SmartTableModule } from "ng2-smart-table";
 import { FsIconComponent } from "./groups/groups.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { GroupsComponent } from "./groups/groups.component";
+import { GroupComponent, UserIconComponent } from './group/group.component';
 
 @NgModule({
   imports: [
@@ -42,7 +43,9 @@ import { GroupsComponent } from "./groups/groups.component";
     ManagementComponent,
     CompanyComponent,
     FsIconComponent,
+    UserIconComponent,
     GroupsComponent,
+    GroupComponent,
   ],
 })
 export class ManagementModule { }
