@@ -5,9 +5,6 @@ import { ManagementComponent } from './management.component';
 import { CompanyComponent } from "./company/company.component";
 import { RolesGuard } from "../../@core/guards/roles.guard";
 import { UsersComponent } from "./users/users.component";
-import { TreeComponent } from "./groups/tree-grid/tree.component";
-import { TablesComponent } from "../tables/tables.component";
-import { SmartTableComponent } from "../tables/smart-table/smart-table.component";
 import { GroupsComponent } from "./groups/groups.component";
 
 const routes: Routes = [{
@@ -36,7 +33,3 @@ const routes: Routes = [{
   exports: [RouterModule],
 })
 export class ManagementRoutingModule { }
-
-export const routedComponents = [
-  TreeComponent,
-];
