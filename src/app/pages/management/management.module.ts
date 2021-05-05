@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import {
-  NbAlertModule,
-  NbCardModule, NbFormFieldModule,
+  NbAlertModule, NbButtonModule,
+  NbCardModule, NbCheckboxModule, NbFormFieldModule,
   NbIconModule, NbInputModule,
   NbPopoverModule,
-  NbSearchModule,
+  NbSearchModule, NbSelectModule,
   NbTreeGridModule
 } from '@nebular/theme';
 
@@ -34,6 +34,9 @@ import { CreateGroupComponent } from './groups/create-group/create-group.compone
     NbInputModule,
     ThemeModule,
     NbFormFieldModule,
+    NbCheckboxModule,
+    NbButtonModule,
+    NbSelectModule,
   ],
   declarations: [
     ManagementComponent,

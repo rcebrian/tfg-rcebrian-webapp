@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CreateGroupService } from "./create-group.service";
+import { CompanyDto } from "../../../../@core/models/dto/company-dto";
 
 @Component({
   selector: 'ngx-create-group',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateGroupComponent implements OnInit {
 
-  constructor() { }
+  companies: Array<CompanyDto>;
+
+  constructor(private createGroupService: CreateGroupService) { }
 
   ngOnInit(): void {
+    this.createGroupService.getAllCompanies().subscribe((res) => {
+        const { data } = res;
+        this.companies = data;
+    })
   }
 
 }

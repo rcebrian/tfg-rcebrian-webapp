@@ -1,1 +1,13 @@
-<p>create-group works!</p>
+<nb-card class="inline-form-card">
+  <nb-card-header>Create group</nb-card-header>
+  <nb-card-body>
+    <form class="form-inline">
+      <input type="text" nbInput fullWidth placeholder="Company Name">
+      <input type="text" nbInput fullWidth placeholder="Description">
+      <nb-select selected="0" placeholder="Company" style="width: 300px">
+        <nb-option *ngFor="let company of companies"  value="{{company.id}}">{{company.name}}</nb-option>
+      </nb-select>
+      <button type="submit" nbButton status="primary">Create</button>
+    </form>
+  </nb-card-body>
+</nb-card>
