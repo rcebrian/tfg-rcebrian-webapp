@@ -49,7 +49,7 @@
         <input nbInput [nbFilterInput]="dataSource" id="search" >
       </nb-form-field>
 
-      <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" (sort)="updateSort($event)">
+      <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" equalColumnsWidth="true" (sort)="updateSort($event)">
 
         <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
         <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns"></tr>
