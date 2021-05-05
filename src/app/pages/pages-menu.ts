@@ -21,11 +21,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/management/groups',
         icon: 'people-outline',
       },
-      {
-        title: 'Users',
-        link: '/pages/management/users',
-        icon: 'people-outline',
-      },
     ],
   },
   {

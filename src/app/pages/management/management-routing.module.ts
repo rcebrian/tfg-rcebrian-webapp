@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { ManagementComponent } from './management.component';
 import { CompanyComponent } from "./company/company.component";
 import { RolesGuard } from "../../@core/guards/roles.guard";
-import { UsersComponent } from "./users/users.component";
 import { GroupsComponent } from "./groups/groups.component";
 
 const routes: Routes = [{
@@ -16,10 +15,6 @@ const routes: Routes = [{
     {
       path: 'company',
       component: CompanyComponent,
-    },
-    {
-      path: 'users',
-      component: UsersComponent,
     },
     {
       path: 'groups',

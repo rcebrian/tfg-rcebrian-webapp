@@ -13,7 +13,6 @@ import { ManagementRoutingModule } from './management-routing.module';
 import { ManagementComponent } from './management.component';
 import { CompanyComponent } from './company/company.component';
 import { Ng2SmartTableModule } from "ng2-smart-table";
-import { UsersComponent } from './users/users.component';
 import { FsIconComponent } from "./groups/groups.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { GroupsComponent } from "./groups/groups.component";
@@ -42,7 +41,6 @@ import { GroupsComponent } from "./groups/groups.component";
   declarations: [
     ManagementComponent,
     CompanyComponent,
-    UsersComponent,
     FsIconComponent,
     GroupsComponent,
   ],
