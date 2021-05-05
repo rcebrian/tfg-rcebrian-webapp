@@ -14,6 +14,7 @@ interface FSEntry {
   name: string;
   description: string;
   kind: string;
+  size: number;
   id?: number;
 }
 
@@ -28,7 +29,7 @@ export class GroupsComponent implements OnInit {
   newGroup:any = {};
 
   customColumn = 'name';
-  defaultColumns = [ 'description', 'kind' ];
+  defaultColumns = [ 'description', 'kind', 'size'];
   allColumns = [ this.customColumn, ...this.defaultColumns ];
   dataSource: NbTreeGridDataSource<FSEntry>;
   sortColumn: string;
@@ -91,6 +92,12 @@ export class GroupsComponent implements OnInit {
     })
   }
 
+  isGroup = (kind: string) => kind === 'group';
+
+  sout2(id) {
+    console.log(id)
+  }
+
   get name() { return this.groupForm.get('name'); }
   get description() { return this.groupForm.get('description'); }
   get companyId() { return this.groupForm.get('companyId'); }
@@ -99,7 +106,7 @@ export class GroupsComponent implements OnInit {
 @Component({
   selector: 'ngx-fs-icon',
   template: `
-    <nb-tree-grid-row-toggle [expanded]="expanded" *ngIf="isDir(); else fileIcon">
+    <nb-tree-grid-row-toggle [expanded]="expanded" *ngIf="isCompany(); else fileIcon">
     </nb-tree-grid-row-toggle>
     <ng-template #fileIcon>
       <nb-icon icon="people-outline"></nb-icon>
@@ -109,9 +116,10 @@ export class GroupsComponent implements OnInit {
 
 export class FsIconComponent {
   @Input() kind: string;
+  @Input() id: number;
   @Input() expanded: boolean;
 
-  isDir(): boolean {
+  isCompany(): boolean {
     return this.kind === 'company';
   }
 }

@@ -54,14 +54,15 @@
       <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" equalColumnsWidth="true" (sort)="updateSort($event)">
 
         <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
-        <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns"></tr>
+        <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns" (click)="isGroup(row.data.kind) ? sout2(row.data.id) : ''">
+        </tr>
 
         <ng-container [nbTreeGridColumnDef]="customColumn">
           <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(customColumn)" *nbTreeGridHeaderCellDef>
             {{customColumn}}
           </th>
           <td nbTreeGridCell *nbTreeGridCellDef="let row">
-            <ngx-fs-icon [kind]="row.data.kind" [expanded]="row.expanded"></ngx-fs-icon>
+            <ngx-fs-icon [kind]="row.data.kind" [id]="row.data.id" [expanded]="row.expanded"></ngx-fs-icon>
             {{row.data[customColumn]}}
           </td>
         </ng-container>
