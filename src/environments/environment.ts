@@ -22,7 +22,10 @@ export const environment = {
     signIn: `/signIn`,
   },
   users: {
-    getUserInfo: `${usersBase}/:id`
+    getAllUsers: `${usersBase}`,
+    getUserInfo: `${usersBase}/:id`,
+    putUserInfo: `${usersBase}/:userId`,
+    deleteUserInfo: `${usersBase}/:userId`,
   },
   companies: {
     getTreeAllCompanies: `${companyBase}/tree`,
