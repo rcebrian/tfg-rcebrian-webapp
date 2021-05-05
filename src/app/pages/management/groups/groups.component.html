@@ -5,11 +5,13 @@
       <nb-card-body>
         <form class="form-inline" [formGroup]="groupForm">
 
-          <input nbInput id="name" type="text" placeholder="Group Name" formControlName="name" fullWidth required>
+          <input nbInput id="name" type="text" placeholder="Group Name" formControlName="name"
+                 [status]="name.invalid && name.touched ? 'danger' : (name.valid ? 'success' : 'basic')" fullWidth required>
 
-          <input type="text" nbInput fullWidth placeholder="Group description" formControlName="description" required>
+          <input type="text" nbInput fullWidth placeholder="Group description" formControlName="description"
+                 [status]="description.invalid && description.touched ? 'danger' : (description.valid ? 'success' : 'basic')" required>
 
-          <nb-select selected="0" placeholder="Company" style="width: 300px" formControlName="companyId" required>
+          <nb-select selected="0" placeholder="Company" style="width: 300px" formControlName="companyId" [status]="companyId.invalid && companyId.touched ? 'danger' : (companyId.valid ? 'success' : 'basic')" required>
             <nb-option *ngFor="let company of companiesSelect" value="{{ company.id }}">{{ company.id }} - {{ company.name }}</nb-option>
           </nb-select>
           <button type="submit" nbButton status="primary" (click)="submitNewGroup()"

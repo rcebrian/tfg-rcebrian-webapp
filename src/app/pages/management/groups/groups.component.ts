@@ -27,8 +27,6 @@ export class GroupsComponent implements OnInit {
   groupForm: any;
   newGroup:any = {};
 
-  companies: any;
-
   customColumn = 'name';
   defaultColumns = [ 'description', 'kind' ];
   allColumns = [ this.customColumn, ...this.defaultColumns ];
