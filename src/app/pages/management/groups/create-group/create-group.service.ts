@@ -9,7 +9,9 @@ interface CompanyResponseDto {
 }
 
 interface GroupForm {
-
+  name: string;
+  description: string;
+  companyId: number;
 }
 
 @Injectable({
@@ -25,7 +27,7 @@ export class CreateGroupService {
   }
 
   postNewGroup(newGroup: GroupForm): Observable<any> {
-    const url = environment.companies.postNewCompany;
+    const url = environment.groups.postNewGroup.replace(':companyId', String(newGroup.companyId));
     return this.httpClient.post(url, newGroup);
   }
 }

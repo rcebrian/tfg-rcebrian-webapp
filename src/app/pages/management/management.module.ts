@@ -17,6 +17,7 @@ import { UsersComponent } from './users/users.component';
 import { FsIconComponent } from "./groups/tree-grid/tree.component";
 import { GroupsComponent } from './groups/groups.component';
 import { CreateGroupComponent } from './groups/create-group/create-group.component';
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   imports: [
@@ -37,6 +38,7 @@ import { CreateGroupComponent } from './groups/create-group/create-group.compone
     NbCheckboxModule,
     NbButtonModule,
     NbSelectModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     ManagementComponent,
