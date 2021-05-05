@@ -14,7 +14,9 @@ import { ManagementComponent } from './management.component';
 import { CompanyComponent } from './company/company.component';
 import { Ng2SmartTableModule } from "ng2-smart-table";
 import { UsersComponent } from './users/users.component';
-import { FsIconComponent } from "./tree-grid/groups.component";
+import { FsIconComponent } from "./groups/tree-grid/tree.component";
+import { GroupsComponent } from './groups/groups.component';
+import { CreateGroupComponent } from './groups/create-group/create-group.component';
 
 @NgModule({
   imports: [
@@ -39,6 +41,8 @@ import { FsIconComponent } from "./tree-grid/groups.component";
     UsersComponent,
     ...routedComponents,
     FsIconComponent,
+    GroupsComponent,
+    CreateGroupComponent,
   ],
 })
 export class ManagementModule { }

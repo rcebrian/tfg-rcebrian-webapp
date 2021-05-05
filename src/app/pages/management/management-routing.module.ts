@@ -5,9 +5,10 @@ import { ManagementComponent } from './management.component';
 import { CompanyComponent } from "./company/company.component";
 import { RolesGuard } from "../../@core/guards/roles.guard";
 import { UsersComponent } from "./users/users.component";
-import { GroupsComponent } from "./tree-grid/groups.component";
+import { TreeComponent } from "./groups/tree-grid/tree.component";
 import { TablesComponent } from "../tables/tables.component";
 import { SmartTableComponent } from "../tables/smart-table/smart-table.component";
+import { GroupsComponent } from "./groups/groups.component";
 
 const routes: Routes = [{
   path: '',
@@ -37,5 +38,5 @@ const routes: Routes = [{
 export class ManagementRoutingModule { }
 
 export const routedComponents = [
-  GroupsComponent,
+  TreeComponent,
 ];
