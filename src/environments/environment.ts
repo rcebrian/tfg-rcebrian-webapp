@@ -20,6 +20,8 @@ export const environment = {
 
   auth: {
     signIn: `/signIn`,
+    signUp: `${authBase}/signUp`,
+    getRoles: `${authBase}/roles`,
   },
   users: {
     getAllUsers: `${usersBase}`,

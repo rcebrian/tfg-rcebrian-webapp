@@ -1,8 +1,9 @@
+
 <div class="row">
   <div class="col-12">
     <nb-card accent="info">
       <nb-card-header>
-        Groups
+        Group
       </nb-card-header>
       <nb-card-body>
         <nb-form-field>
@@ -42,3 +43,114 @@
     </nb-card>
   </div>
 </div>
+
+<div class="row">
+  <div class="col-12">
+    <nb-card>
+      <nb-card-header>Create user on group</nb-card-header>
+      <nb-card-body>
+        <form [formGroup]="userForm">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="inputFirstName" class="label">First name</label>
+                <input nbInput type="text" placeholder="First name" formControlName="firstName" id="inputFirstName"
+                       [status]="firstName.invalid && firstName.touched ? 'danger' : (firstName.valid ? 'success' : 'basic')" fullWidth required>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="inputLastName" class="label">Last name</label>
+                <input type="text" id="inputLastName" nbInput fullWidth placeholder="Last name" formControlName="lastName"
+                       [status]="lastName.invalid && lastName.touched ? 'danger' : (lastName.valid ? 'success' : 'basic')" required>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="inputEmail" class="label">Email</label>
+                <input (error)="email.invalid" type="text" id="inputEmail" nbInput fullWidth placeholder="Email" formControlName="email"
+                       [status]="email.invalid && email.touched ? 'danger' : (email.valid ? 'success' : 'basic')" required>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="inputPhone" class="label">Mobile phone</label>
+                <input type="tel" id="inputPhone" nbInput fullWidth placeholder="Mobile phone" formControlName="phone"
+                       [status]="phone.invalid && phone.touched ? 'danger' : (phone.valid ? 'success' : 'basic')" required>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="inputAddress" class="label">Address</label>
+                <input type="text" id="inputAddress" nbInput fullWidth placeholder="Address" formControlName="address"
+                       [status]="address.invalid && address.touched ? 'danger' : (address.valid ? 'success' : 'basic')" required>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="inputCountry" class="label">Country</label>
+                <input type="text" id="inputCountry" nbInput fullWidth placeholder="Country" formControlName="country"
+                       [status]="country.invalid && country.touched ? 'danger' : (country.valid ? 'success' : 'basic')" required>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="inputPostalCode" class="label">Postal Code</label>
+                <input type="text" id="inputPostalCode" nbInput fullWidth placeholder="Postal code" formControlName="postalCode"
+                       [status]="postalCode.invalid && postalCode.touched ? 'danger' : (postalCode.valid ? 'success' : 'basic')" required>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="inputPassword" class="label">Confirm password</label>
+                <nb-form-field>
+                  <input [type]="getInputType()" fullWidth nbInput id="inputPassword"  formControlName="password"
+                         [status]="password.invalid && password.touched ? 'danger' : (password.valid ? 'success' : 'basic')" required>
+                  <button nbSuffix nbButton ghost (click)="toggleShowPassword()">
+                    <nb-icon [icon]="showPassword ? 'eye-outline' : 'eye-off-2-outline'"
+                             pack="eva"
+                             [attr.aria-label]="showPassword ? 'hide password' : 'show password'">
+                    </nb-icon>
+                  </button>
+                </nb-form-field>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="inputConfirmPassword" class="label">Confirm password</label>
+                <nb-form-field>
+                  <input [type]="getInputTypeConfirm()" fullWidth nbInput id="inputConfirmPassword"  formControlName="confirmPassword"
+                         [status]="confirmPassword.invalid && confirmPassword.touched ? 'danger' : (confirmPassword.valid ? 'success' : 'basic')" required>
+                  <button nbSuffix nbButton ghost (click)="toggleShowConfirmPassword()">
+                    <nb-icon [icon]="showConfirmPassword ? 'eye-outline' : 'eye-off-2-outline'"
+                             pack="eva"
+                             [attr.aria-label]="showConfirmPassword ? 'hide password' : 'show password'">
+                    </nb-icon>
+                  </button>
+                </nb-form-field>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="inputRole" class="label">Role</label>
+                <nb-select selected="0" id="inputRole" placeholder="Role" fullWidth formControlName="role" [status]="role.invalid && role.touched ? 'danger' : (role.valid ? 'success' : 'basic')" required>
+                  <nb-option *ngFor="let role of roles" value="{{ role.id }}">{{ role.name }}</nb-option>
+                </nb-select>
+              </div>
+            </div>
+          </div>
+          <button type="submit" nbButton status="primary" (click)="submitNewUser()"
+                  [disabled]="!(firstName.valid && lastName.valid && phone.valid && email.valid && address.valid && country.valid && postalCode.valid && password.valid && confirmPassword.valid && role.valid)">Create
+          </button>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
