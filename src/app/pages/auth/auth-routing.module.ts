@@ -10,9 +10,6 @@ import {
   NbAuthComponent,
   NbLoginComponent,
   NbLogoutComponent,
-  NbRegisterComponent,
-  NbRequestPasswordComponent,
-  NbResetPasswordComponent,
 } from '@nebular/auth';
 import { AuthGuard } from "../../@core/guards/auth.guard";
 
@@ -26,21 +23,9 @@ export const routes: Routes = [
         component: NbLoginComponent,
       },
       {
-        path: 'register',
-        component: NbRegisterComponent,
-      },
-      {
         path: 'logout',
         canActivate: [AuthGuard],
         component: NbLogoutComponent,
-      },
-      {
-        path: 'request-password',
-        component: NbRequestPasswordComponent,
-      },
-      {
-        path: 'reset-password',
-        component: NbResetPasswordComponent,
       },
     ],
   },
