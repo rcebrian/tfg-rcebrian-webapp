@@ -1,6 +1,6 @@
 <div class="header-container">
   <div class="logo-container">
-    <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
+    <a (click)="toggleSidebar()" href="#" class="sidebar-toggle" *ngIf="isNotUser">
       <nb-icon icon="menu-2-outline"></nb-icon>
     </a>
     <a class="logo" href="#" (click)="navigateHome()"><img class="img-responsive" src="assets/logo/logo-header.png" alt="d" width="140"></a>
