@@ -6,8 +6,6 @@ export interface NbAuthSocialLink {
   icon?: string,
 }
 
-const socialLinks: NbAuthSocialLink[] = [];
-
 export const nbAuthConfig: any = {
   forms: {
     login: {
@@ -17,7 +15,6 @@ export const nbAuthConfig: any = {
         success: true,
         error: true,
       },
-      socialLinks: socialLinks, // social links at the bottom of a page
     },
     validation: {
       password: {

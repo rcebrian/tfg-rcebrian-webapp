@@ -59,6 +59,14 @@ export const NB_CORE_PROVIDERS = [
           },
           defaultMessages: ['You have been successfully logged in.'],
         },
+        logout: {
+          endpoint: environment.auth.signOut,
+          method: 'post',
+          redirect: {
+            success: '/auth/login',
+            failure: 'pages/logout',
+          },
+        }
       }),
     ],
     forms: nbAuthConfig.forms,

@@ -50,6 +50,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     {
       title: 'Log out',
       icon: 'power-outline',
+      link: '/auth/logout',
     }
   ];
 
