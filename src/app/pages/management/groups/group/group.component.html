@@ -56,6 +56,14 @@
                 <label for="inputFirstName" class="label">First name</label>
                 <input nbInput type="text" placeholder="First name" formControlName="firstName" id="inputFirstName"
                        [status]="firstName.invalid && firstName.touched ? 'danger' : (firstName.valid ? 'success' : 'basic')" fullWidth required>
+                <ng-container *ngIf="firstName.invalid && firstName.touched">
+                  <p class="caption status-danger" *ngIf="firstName.errors?.required">
+                    Name is required!
+                  </p>
+                  <p class="caption status-danger" *ngIf="lastName.errors?.pattern">
+                    Last name must ve alphanumeric
+                  </p>
+                </ng-container>
               </div>
             </div>
             <div class="col-md-6">
@@ -63,6 +71,14 @@
                 <label for="inputLastName" class="label">Last name</label>
                 <input type="text" id="inputLastName" nbInput fullWidth placeholder="Last name" formControlName="lastName"
                        [status]="lastName.invalid && lastName.touched ? 'danger' : (lastName.valid ? 'success' : 'basic')" required>
+                <ng-container *ngIf="lastName.invalid && lastName.touched">
+                  <p class="caption status-danger" *ngIf="lastName.errors?.required">
+                    Lastname is required!
+                  </p>
+                  <p class="caption status-danger" *ngIf="lastName.errors?.pattern">
+                    Last name must ve alphanumeric
+                  </p>
+                </ng-container>
               </div>
             </div>
           </div>
@@ -72,6 +88,14 @@
                 <label for="inputEmail" class="label">Email</label>
                 <input (error)="email.invalid" type="text" id="inputEmail" nbInput fullWidth placeholder="Email" formControlName="email"
                        [status]="email.invalid && email.touched ? 'danger' : (email.valid ? 'success' : 'basic')" required>
+                <ng-container *ngIf="email.invalid && email.touched">
+                  <p class="caption status-danger" *ngIf="email.errors?.required">
+                    Email is required!
+                  </p>
+                  <p class="caption status-danger" *ngIf="email.errors?.email">
+                    Email must be valid
+                  </p>
+                </ng-container>
               </div>
             </div>
             <div class="col-sm-6">
@@ -79,6 +103,14 @@
                 <label for="inputPhone" class="label">Mobile phone</label>
                 <input type="tel" id="inputPhone" nbInput fullWidth placeholder="Mobile phone" formControlName="phone"
                        [status]="phone.invalid && phone.touched ? 'danger' : (phone.valid ? 'success' : 'basic')" required>
+                <ng-container *ngIf="phone.invalid && phone.touched">
+                  <p class="caption status-danger" *ngIf="phone.errors?.required">
+                    Mobile phone is required!
+                  </p>
+                  <p class="caption status-danger" *ngIf="phone.errors?.pattern">
+                    Mobile phone must be valid
+                  </p>
+                </ng-container>
               </div>
             </div>
           </div>
@@ -88,6 +120,15 @@
                 <label for="inputAddress" class="label">Address</label>
                 <input type="text" id="inputAddress" nbInput fullWidth placeholder="Address" formControlName="address"
                        [status]="address.invalid && address.touched ? 'danger' : (address.valid ? 'success' : 'basic')" required>
+                <ng-container *ngIf="address.invalid && address.touched">
+                  <p class="caption status-danger" *ngIf="address.errors?.required">
+                    Address is required!
+                  </p>
+                  <p class="caption status-danger" *ngIf="address.errors?.pattern">
+                    Address must be valid
+                  </p>
+                </ng-container>
+
               </div>
             </div>
             <div class="col-sm-4">
@@ -95,6 +136,14 @@
                 <label for="inputCountry" class="label">Country</label>
                 <input type="text" id="inputCountry" nbInput fullWidth placeholder="Country" formControlName="country"
                        [status]="country.invalid && country.touched ? 'danger' : (country.valid ? 'success' : 'basic')" required>
+                <ng-container *ngIf="country.invalid && country.touched">
+                  <p class="caption status-danger" *ngIf="country.errors?.required">
+                    Country is required!
+                  </p>
+                  <p class="caption status-danger" *ngIf="country.errors?.pattern">
+                    Country must be valid
+                  </p>
+                </ng-container>
               </div>
             </div>
             <div class="col-sm-4">
@@ -102,6 +151,14 @@
                 <label for="inputPostalCode" class="label">Postal Code</label>
                 <input type="text" id="inputPostalCode" nbInput fullWidth placeholder="Postal code" formControlName="postalCode"
                        [status]="postalCode.invalid && postalCode.touched ? 'danger' : (postalCode.valid ? 'success' : 'basic')" required>
+                <ng-container *ngIf="postalCode.invalid && postalCode.touched">
+                  <p class="caption status-danger" *ngIf="postalCode.errors?.required">
+                    Postal code is required!
+                  </p>
+                  <p class="caption status-danger" *ngIf="postalCode.errors?.pattern">
+                    Postal code must be numeric
+                  </p>
+                </ng-container>
               </div>
             </div>
           </div>
@@ -119,6 +176,14 @@
                     </nb-icon>
                   </button>
                 </nb-form-field>
+                <ng-container *ngIf="password.invalid && password.touched">
+                  <p class="caption status-danger" *ngIf="password.errors?.required">
+                    Password is required!
+                  </p>
+                  <p class="caption status-danger" *ngIf="password.errors?.pattern">
+                    Password should be combination of one uppercase , one lower case, one special char, one digit and min 8 , max 20 char long
+                  </p>
+                </ng-container>
               </div>
             </div>
             <div class="col-sm-4">
@@ -134,6 +199,14 @@
                     </nb-icon>
                   </button>
                 </nb-form-field>
+                <ng-container *ngIf="confirmPassword.invalid && confirmPassword.touched">
+                  <p class="caption status-danger" *ngIf="confirmPassword.errors?.required">
+                    Confirm password is required!
+                  </p>
+                  <p class="caption status-danger" *ngIf="confirmPassword.errors?.confirmPasswordIncorrect">
+                    Passwords must match
+                  </p>
+                </ng-container>
               </div>
             </div>
             <div class="col-sm-4">
@@ -142,6 +215,11 @@
                 <nb-select selected="0" id="inputRole" placeholder="Role" fullWidth formControlName="role" [status]="role.invalid && role.touched ? 'danger' : (role.valid ? 'success' : 'basic')" required>
                   <nb-option *ngFor="let role of roles" value="{{ role.id }}">{{ role.name }}</nb-option>
                 </nb-select>
+                <ng-container *ngIf="role.invalid && role.touched">
+                  <p class="caption status-danger" *ngIf="role.errors?.required">
+                    Confirm password is required!
+                  </p>
+                </ng-container>
               </div>
             </div>
           </div>
