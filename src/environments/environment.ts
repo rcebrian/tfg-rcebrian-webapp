@@ -39,6 +39,7 @@ export const environment = {
     deleteCompany: `${companyBase}/:id`,
   },
   groups: {
+    getUserGroups: `${companyBase}/groups`,
     postNewGroup: `${companyBase}/groups`,
     getTreeGroup: `${companyBase}/groups/:groupId`
   }

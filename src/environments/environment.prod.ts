@@ -8,7 +8,7 @@ const usersBase = `http://localhost:3001/api/users`;
 const companyBase = `http://localhost:3002/api/company`;
 
 export const environment = {
-  production: false,
+  production: true,
 
   authBase: authBase,
   usersBase: usersBase,
@@ -34,6 +34,7 @@ export const environment = {
     deleteCompany: `${companyBase}/:id`,
   },
   groups: {
+    getUserGroups: `${companyBase}/groups`,
     postNewGroup: `${companyBase}/groups`,
     getTreeGroup: `${companyBase}/groups/:groupId`
   }
