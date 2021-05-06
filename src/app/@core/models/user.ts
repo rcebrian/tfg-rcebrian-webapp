@@ -10,4 +10,5 @@ export interface User {
   role: {
     name: string;
   }
+  groups?: Array<any>
 }
