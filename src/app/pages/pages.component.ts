@@ -51,7 +51,7 @@ export class PagesComponent {
     return {
       title: group.name,
       icon: 'people-outline',
-      link: `/pages/map/${group.id}`
+      link: `/pages/groups/${group.id}/map`
     }
   }
 
@@ -60,7 +60,6 @@ export class PagesComponent {
       {
         title: 'My Groups',
         icon: 'briefcase-outline',
-        link: '/pages/management',
         children: children,
       },
     ];
