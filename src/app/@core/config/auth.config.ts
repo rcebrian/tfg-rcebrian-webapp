@@ -1,11 +1,3 @@
-export interface NbAuthSocialLink {
-  link?: string;
-  url?: string;
-  target?: string;
-  title?: string;
-  icon?: string;
-}
-
 export const nbAuthConfig: any = {
   forms: {
     login: {
