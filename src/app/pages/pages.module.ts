@@ -7,6 +7,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { ProfileModule } from "./profile/profile.module";
 import { ManagementModule } from "./management/management.module";
+import { MonitorModule } from "./monitor/monitor.module";
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { ManagementModule } from "./management/management.module";
     MiscellaneousModule,
     ProfileModule,
     ManagementModule,
+    MonitorModule,
   ],
   declarations: [
     PagesComponent,

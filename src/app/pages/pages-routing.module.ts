@@ -14,6 +14,11 @@ const routes: Routes = [{
         .then(m => m.ManagementModule),
     },
     {
+      path: 'groups',
+      loadChildren: () => import('./monitor/monitor.module')
+        .then(m => m.MonitorModule),
+    },
+    {
       path: 'layout',
       loadChildren: () => import('./layout/layout.module')
         .then(m => m.LayoutModule),
