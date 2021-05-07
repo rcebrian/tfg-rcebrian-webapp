@@ -19,9 +19,9 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
-import { AuthGuard } from "./@core/guards/auth.guard";
-import { RolesGuard } from "./@core/guards/roles.guard";
-import { JWTInterceptorService } from "./@core/services/jwt-interceptor.service";
+import { AuthGuard } from './@core/guards/auth.guard';
+import { RolesGuard } from './@core/guards/roles.guard';
+import { JWTInterceptorService } from './@core/services/jwt-interceptor.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -45,8 +45,8 @@ import { JWTInterceptorService } from "./@core/services/jwt-interceptor.service"
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JWTInterceptorService,
-      multi: true
-    }
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })

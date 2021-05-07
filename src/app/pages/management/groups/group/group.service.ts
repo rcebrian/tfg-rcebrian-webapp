@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
-import { environment } from "../../../../../environments/environment";
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from '../../../../../environments/environment';
 import { RoleDto } from '../../../../@core/models/dto/role-dto';
 
 interface RolesResponseDto {
@@ -9,14 +9,14 @@ interface RolesResponseDto {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GroupService {
 
   constructor(private httpClient: HttpClient) { }
 
 
-  getCompaniesTree(groupId: number): Observable<any>{
+  getCompaniesTree(groupId: number): Observable<any> {
     const url = environment.groups.getTreeGroup
       .replace(':groupId', String(groupId));
     return this.httpClient.get<any>(url);
@@ -24,7 +24,6 @@ export class GroupService {
 
   createUser(newUser: any): Observable<any> {
     const url = environment.auth.signUp;
-    console.log(newUser);
     return this.httpClient.post(url, newUser);
   }
 

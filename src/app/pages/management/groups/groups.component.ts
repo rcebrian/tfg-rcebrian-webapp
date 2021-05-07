@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NbSortDirection, NbSortRequest, NbTreeGridDataSource, NbTreeGridDataSourceBuilder } from "@nebular/theme";
-import { GroupsService } from "./groups.service";
-import { CompanyDto } from "../../../@core/models/dto/company-dto";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
+import { NbSortDirection, NbSortRequest, NbTreeGridDataSource, NbTreeGridDataSourceBuilder } from '@nebular/theme';
+import { GroupsService } from './groups.service';
+import { CompanyDto } from '../../../@core/models/dto/company-dto';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 interface TreeNode<T> {
   data: T;
@@ -22,12 +22,12 @@ interface FSEntry {
 @Component({
   selector: 'ngx-groups',
   templateUrl: './groups.component.html',
-  styleUrls: ['./groups.component.scss']
+  styleUrls: ['./groups.component.scss'],
 })
 export class GroupsComponent implements OnInit {
   companiesSelect: Array<CompanyDto>;
   groupForm: any;
-  newGroup:any = {};
+  newGroup: any = {};
 
   customColumn = 'name';
   defaultColumns = [ 'description', 'kind', 'size'];
@@ -36,7 +36,9 @@ export class GroupsComponent implements OnInit {
   sortColumn: string;
   sortDirection: NbSortDirection = NbSortDirection.NONE;
 
-  constructor(private dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>, private groupsService: GroupsService, private router: Router) {
+  constructor(
+    private dataSourceBuilder: NbTreeGridDataSourceBuilder<FSEntry>,
+    private groupsService: GroupsService, private router: Router) {
     this.getTreeData();
   }
 
@@ -50,10 +52,10 @@ export class GroupsComponent implements OnInit {
     this.groupsService.postNewGroup({
       companyId: this.companyId.value,
       name: this.name.value,
-      description: this.description.value
+      description: this.description.value,
     }).subscribe(() => {
       this.getTreeData();
-    })
+    });
   }
 
   updateSort(sortRequest: NbSortRequest): void {
@@ -78,25 +80,25 @@ export class GroupsComponent implements OnInit {
     this.groupsService.getAllCompanies().subscribe((res) => {
       const { data } = res;
       this.companiesSelect = data;
-    })
+    });
 
     this.groupForm = new FormGroup({
       name: new FormControl(this.newGroup.name, [
         Validators.required,
       ]),
       description: new FormControl(this.newGroup.description, [
-        Validators.required
+        Validators.required,
       ]),
       companyId: new FormControl(this.newGroup.companyId, [
         Validators.required,
-      ])
-    })
+      ]),
+    });
   }
 
   isGroup = (kind: string) => kind === 'group';
 
   navigateToGroup(id) {
-    this.router.navigate(['/pages/management/groups/'.concat(String(id))])
+    this.router.navigate(['/pages/management/groups/'.concat(String(id))]);
   }
 
   get name() { return this.groupForm.get('name'); }

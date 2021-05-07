@@ -20,8 +20,8 @@ import { SmartTableService } from './mock/smart-table.service';
 import { UserActivityService } from './mock/user-activity.service';
 import { MockDataModule } from './mock/mock-data.module';
 
-import { nbAuthConfig } from "./config/auth.config";
-import { environment } from "../../environments/environment";
+import { nbAuthConfig } from './config/auth.config';
+import { environment } from '../../environments/environment';
 
 const DATA_SERVICES = [
   { provide: UserData, useClass: UserService },
@@ -47,7 +47,7 @@ export const NB_CORE_PROVIDERS = [
         baseEndpoint: environment.authBase,
         token: {
           class: NbAuthJWTToken,
-          key: 'data.accessToken'
+          key: 'data.accessToken',
         },
         login: {
           endpoint: environment.auth.signIn,
@@ -66,7 +66,7 @@ export const NB_CORE_PROVIDERS = [
             success: '/auth/login',
             failure: 'pages/logout',
           },
-        }
+        },
       }),
     ],
     forms: nbAuthConfig.forms,

@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { environment } from "../../../../../environments/environment";
+import { environment } from '../../../../../environments/environment';
 import * as mapboxgl from 'mapbox-gl';
 
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MapService {
   mapbox = (mapboxgl as typeof mapboxgl);
@@ -23,7 +23,7 @@ export class MapService {
       container: 'map',
       style: this.style,
       zoom: this.zoom,
-      center: [this.lng, this.lat]
+      center: [this.lng, this.lat],
     });
     this.map.addControl(new mapboxgl.NavigationControl());
   }

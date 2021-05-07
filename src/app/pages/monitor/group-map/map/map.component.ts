@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { MapService } from "./map.service";
+import { MapService } from './map.service';
 
 @Component({
   selector: 'ngx-map',
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.scss']
+  styleUrls: ['./map.component.scss'],
 })
 export class MapComponent implements OnInit {
 

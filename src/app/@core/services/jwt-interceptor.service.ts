@@ -17,14 +17,14 @@ export class JWTInterceptorService implements HttpInterceptor {
     // get token from NbAuthService
     this.authService.getToken().subscribe(token => {
       this.bearerToken = token.getValue();
-    })
+    });
 
     if (this.bearerToken) {
       request = req.clone({
         setHeaders: {
           authorization: `Bearer ${this.bearerToken}`,
           // 'Content-Type': 'application/json'
-        }
+        },
       });
     }
 

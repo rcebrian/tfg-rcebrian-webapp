@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
-import { NbSortDirection, NbSortRequest, NbTreeGridDataSource, NbTreeGridDataSourceBuilder } from "@nebular/theme";
-import { GroupService } from "./group.service";
-import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from "@angular/forms";
+import { ActivatedRoute } from '@angular/router';
+import { NbSortDirection, NbSortRequest, NbTreeGridDataSource, NbTreeGridDataSourceBuilder } from '@nebular/theme';
+import { GroupService } from './group.service';
+import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 
 interface TreeNode<T> {
   data: T;
@@ -21,14 +21,14 @@ interface FSEntry {
 @Component({
   selector: 'ngx-group',
   templateUrl: './group.component.html',
-  styleUrls: ['./group.component.scss']
+  styleUrls: ['./group.component.scss'],
 })
 export class GroupComponent implements OnInit {
 
   groupId: number;
   roles: any;
   userForm: any;
-  newUser:any = {};
+  newUser: any = {};
 
   customColumn = 'name';
   defaultColumns = [ 'description', 'kind', 'size'];
@@ -46,7 +46,7 @@ export class GroupComponent implements OnInit {
     });
     this.groupService.getRoles().subscribe(res => {
       this.roles = res.data.filter(item => item.name !== 'ROLE_ADMIN');
-    })
+    });
   }
 
   getTreeData = () => {
@@ -120,15 +120,15 @@ export class GroupComponent implements OnInit {
     this.userForm = new FormGroup({
         firstName: new FormControl(this.newUser.firstName, [
           Validators.required,
-          Validators.pattern('[a-zA-Z ]*')
+          Validators.pattern('[a-zA-Z ]*'),
         ]),
         lastName: new FormControl(this.newUser.lastName, [
           Validators.required,
-          Validators.pattern('[a-zA-Z ]*')
+          Validators.pattern('[a-zA-Z ]*'),
         ]),
         phone: new FormControl(this.newUser.phone, [
           Validators.required,
-          Validators.pattern('[0-9]*')
+          Validators.pattern('[0-9]*'),
         ]),
         email: new FormControl(this.newUser.email, [
           Validators.required,
@@ -136,28 +136,28 @@ export class GroupComponent implements OnInit {
         ]),
         address: new FormControl(this.newUser.address, [
           Validators.required,
-          Validators.pattern('[a-zA-Z ]*')
+          Validators.pattern('[a-zA-Z ]*'),
         ]),
         country: new FormControl(this.newUser.country, [
           Validators.required,
-          Validators.pattern('[a-zA-Z ]*')
+          Validators.pattern('[a-zA-Z ]*'),
         ]),
-        postalCode:new FormControl(this.newUser.postalCode, [
+        postalCode: new FormControl(this.newUser.postalCode, [
           Validators.required,
           Validators.pattern('[0-9]{5}'),
         ]),
-      password:new FormControl(this.newUser.password, [
+      password: new FormControl(this.newUser.password, [
         Validators.required,
-        Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/)
+        Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/),
       ]),
-      confirmPassword:new FormControl(this.newUser.confirmPassword, [
+      confirmPassword: new FormControl(this.newUser.confirmPassword, [
         Validators.required,
-        this.samePassword()
+        this.samePassword(),
       ]),
         role: new FormControl(this.newUser.role, [
           Validators.required,
         ]),
-    })
+    });
   }
   samePassword(): ValidatorFn {
     return (control: AbstractControl): {[key: string]: any} | null => {
