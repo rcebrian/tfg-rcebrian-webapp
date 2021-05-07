@@ -5,6 +5,7 @@ import { NbAuthJWTToken, NbAuthService } from '@nebular/auth';
 import { LayoutService } from '../../../@core/utils';
 import { map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { NB_THEMES } from '../../../@core/config/themes.config';
 
 @Component({
   selector: 'ngx-header',
@@ -19,24 +20,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   userPictureOnly: boolean = false;
   user: any;
 
-  themes = [
-    {
-      value: 'default',
-      name: 'Light',
-    },
-    {
-      value: 'dark',
-      name: 'Dark',
-    },
-    {
-      value: 'cosmic',
-      name: 'Cosmic',
-    },
-    {
-      value: 'corporate',
-      name: 'Corporate',
-    },
-  ];
+  themes = NB_THEMES;
 
   currentTheme = 'default';
 
