@@ -19,6 +19,16 @@ export const environment = {
     accessToken: 'pk.eyJ1IjoiMjE3MzIxODQiLCJhIjoiY2thbDVjejF1MDZ0MzJycW03NzhwbmE4NiJ9.rxpMEtGUlP8z7VUYsyglJQ',
   },
 
+  firebaseConfig: {
+    apiKey: 'AIzaSyAg8I7RJhZE2TYoIOedJOB5PnyKZMZLWI4',
+    authDomain: 'tfg-rcebrian-2021-310618.firebaseapp.com',
+    databaseURL: 'https://tfg-rcebrian-2021-310618-default-rtdb.europe-west1.firebasedatabase.app',
+    projectId: 'tfg-rcebrian-2021-310618',
+    storageBucket: 'tfg-rcebrian-2021-310618.appspot.com',
+    messagingSenderId: '899064417187',
+    appId: '1:899064417187:web:a0e2f2e93bd358abc4a816'
+  },
+
   authBase: authBase,
   usersBase: usersBase,
 
