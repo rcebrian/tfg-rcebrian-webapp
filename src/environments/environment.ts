@@ -15,6 +15,10 @@ const companyBase = `http://localhost:3002/api/company`;
 export const environment = {
   production: false,
 
+  mapbox: {
+    accessToken: 'pk.eyJ1IjoiMjE3MzIxODQiLCJhIjoiY2thbDVjejF1MDZ0MzJycW03NzhwbmE4NiJ9.rxpMEtGUlP8z7VUYsyglJQ',
+  },
+
   authBase: authBase,
   usersBase: usersBase,
 
