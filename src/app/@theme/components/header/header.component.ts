@@ -53,7 +53,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       title: 'Log out',
       icon: 'power-outline',
       link: '/auth/logout',
-    }
+    },
   ];
 
 
@@ -67,9 +67,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.authService.onTokenChange()
       .subscribe((token: NbAuthJWTToken) => {
         if (token.isValid()) {
-          this.user = token.getPayload(); // here we receive a payload from the token and assigns it to our `user` variable
-        } else {
-        this.userService.getUsers()
+          this.user = token.getPayload();
+          this.userService.getUsers()
           .pipe(takeUntil(this.destroy$))
           .subscribe((users: any) => this.user = users.nick);
         }

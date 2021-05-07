@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-import { environment } from "../../../environments/environment";
-import { Observable } from "rxjs";
-import { User } from "../models/user";
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
+import { Observable } from 'rxjs';
+import { User } from '../models/user';
 
 interface UserGroupsResponseDto {
-  data: User
+  data: User;
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MenuGeneratorService {
 
@@ -17,7 +17,7 @@ export class MenuGeneratorService {
   }
 
   menuFromRole(): Observable<UserGroupsResponseDto> {
-    return this.httpClient.get<UserGroupsResponseDto>(environment.groups.getUserGroups)
+    return this.httpClient.get<UserGroupsResponseDto>(environment.groups.getUserGroups);
   }
 
 }

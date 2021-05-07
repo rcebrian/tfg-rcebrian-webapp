@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
-import { environment } from "../../../../environments/environment";
-import { CompanyForm } from "../../../@core/models/form/company-form";
-import { User } from "../../../@core/models/user";
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from '../../../../environments/environment';
+import { CompanyForm } from '../../../@core/models/form/company-form';
+import { User } from '../../../@core/models/user';
 
 interface ResponseUsersDto {
   data: Array<User>;
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UsersService {
 

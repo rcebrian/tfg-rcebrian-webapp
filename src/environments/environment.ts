@@ -26,7 +26,7 @@ export const environment = {
     projectId: 'tfg-rcebrian-2021-310618',
     storageBucket: 'tfg-rcebrian-2021-310618.appspot.com',
     messagingSenderId: '899064417187',
-    appId: '1:899064417187:web:a0e2f2e93bd358abc4a816'
+    appId: '1:899064417187:web:a0e2f2e93bd358abc4a816',
   },
 
   authBase: authBase,
@@ -55,7 +55,7 @@ export const environment = {
   groups: {
     getUserGroups: `${companyBase}/groups`,
     postNewGroup: `${companyBase}/groups`,
-    getTreeGroup: `${companyBase}/groups/:groupId`
-  }
+    getTreeGroup: `${companyBase}/groups/:groupId`,
+  },
 
 };

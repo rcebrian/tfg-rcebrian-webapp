@@ -9,6 +9,6 @@ export interface User {
   postalCode: string;
   role: {
     name: string;
-  }
-  groups?: Array<any>
+  };
+  groups?: Array<any>;
 }

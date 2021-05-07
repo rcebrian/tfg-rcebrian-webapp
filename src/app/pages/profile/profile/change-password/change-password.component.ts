@@ -14,9 +14,9 @@ export class ChangePasswordComponent implements OnInit {
 
 
   submitPassword = () => {
-    console.log(`this.inputOldPassword => ${this.inputOldPassword}`)
-    console.log(`this.inputNewPassword => ${this.inputNewPassword}`)
-    console.log(`this.inputRepeatNewPassword => ${this.inputRepeatNewPassword}`)
+    // console.log(`this.inputOldPassword => ${this.inputOldPassword}`);
+    // console.log(`this.inputNewPassword => ${this.inputNewPassword}`);
+    // console.log(`this.inputRepeatNewPassword => ${this.inputRepeatNewPassword}`);
   }
 
   ngOnInit(): void {

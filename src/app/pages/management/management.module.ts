@@ -5,17 +5,17 @@ import {
   NbIconModule, NbInputModule,
   NbPopoverModule,
   NbSearchModule, NbSelectModule,
-  NbTreeGridModule
+  NbTreeGridModule,
 } from '@nebular/theme';
 
 import { ThemeModule } from '../../@theme/theme.module';
 import { ManagementRoutingModule } from './management-routing.module';
 import { ManagementComponent } from './management.component';
 import { CompanyComponent } from './company/company.component';
-import { Ng2SmartTableModule } from "ng2-smart-table";
-import { FsIconComponent } from "./groups/groups.component";
-import { ReactiveFormsModule } from "@angular/forms";
-import { GroupsComponent } from "./groups/groups.component";
+import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { FsIconComponent } from './groups/groups.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { GroupsComponent } from './groups/groups.component';
 import { GroupComponent, UserIconComponent } from './groups/group/group.component';
 import { UsersComponent } from './users/users.component';
 

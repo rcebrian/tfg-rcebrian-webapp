@@ -11,7 +11,7 @@ import {
   NbLoginComponent,
   NbLogoutComponent,
 } from '@nebular/auth';
-import { AuthGuard } from "../../@core/guards/auth.guard";
+import { AuthGuard } from '../../@core/guards/auth.guard';
 
 export const routes: Routes = [
   {

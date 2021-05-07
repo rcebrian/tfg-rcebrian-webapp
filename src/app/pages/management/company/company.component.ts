@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { CompanyService } from "./company.service";
-import { CompanyDto } from "../../../@core/models/dto/company-dto";
-import { LocalDataSource } from "ng2-smart-table";
-import { CompanyForm } from "../../../@core/models/form/company-form";
+import { CompanyService } from './company.service';
+import { CompanyDto } from '../../../@core/models/dto/company-dto';
+import { LocalDataSource } from 'ng2-smart-table';
+import { CompanyForm } from '../../../@core/models/form/company-form';
 
 @Component({
   selector: 'ngx-company',
   templateUrl: './company.component.html',
-  styleUrls: [`./company.component.scss`]
+  styleUrls: [`./company.component.scss`],
 })
 export class CompanyComponent implements OnInit {
 
@@ -47,7 +47,7 @@ export class CompanyComponent implements OnInit {
         title: 'Description',
         type: 'string',
         editor: {
-          type: 'textarea'
+          type: 'textarea',
         },
       },
     },
@@ -62,7 +62,7 @@ export class CompanyComponent implements OnInit {
 
     this.companyService.postNewCompany({
       name: company.name,
-      description: company.description
+      description: company.description,
     }).subscribe(res => {
       if (res.data) {
         event.newData['id'] = res.data.id;
@@ -70,7 +70,7 @@ export class CompanyComponent implements OnInit {
       } else {
         event.confirm.reject();
       }
-    })
+    });
   }
 
   onSaveConfirm(event): void {
@@ -78,13 +78,13 @@ export class CompanyComponent implements OnInit {
     const editedCompany: CompanyForm = {name: event.newData.name, description: event.newData.description};
     this.companyService.putCompany(id, editedCompany).subscribe(() => {
       event.confirm.resolve();
-    })
+    });
   }
 
   onDeleteConfirm(event): void {
     this.companyService.deleteCompany(event.data.id).subscribe(() => {
       event.confirm.resolve();
-    })
+    });
   }
 
   ngOnInit(): void {
@@ -92,7 +92,7 @@ export class CompanyComponent implements OnInit {
       const { data } = res;
       this.companies = data;
       this.source.load(this.companies);
-    })
+    });
   }
 
 }

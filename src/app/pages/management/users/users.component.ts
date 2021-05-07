@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from "./users.service";
-import { LocalDataSource } from "ng2-smart-table";
-import { CompanyForm } from "../../../@core/models/form/company-form";
-import { User } from "../../../@core/models/user";
-import { EditUserForm } from "../../../@core/models/form/user-form";
+import { UsersService } from './users.service';
+import { LocalDataSource } from 'ng2-smart-table';
+import { CompanyForm } from '../../../@core/models/form/company-form';
+import { User } from '../../../@core/models/user';
+import { EditUserForm } from '../../../@core/models/form/user-form';
 
 @Component({
   selector: 'ngx-users',
   templateUrl: './users.component.html',
-  styleUrls: [`./users.component.scss`]
+  styleUrls: [`./users.component.scss`],
 })
 export class UsersComponent implements OnInit {
 
@@ -74,12 +74,12 @@ export class UsersComponent implements OnInit {
       role: {
         title: 'Role',
         type: 'string',
-        valuePrepareFunction: (data) =>  data.name.replace('ROLE_', '')
+        valuePrepareFunction: (data) =>  data.name.replace('ROLE_', ''),
       },
     },
     pager: {
-      perPage: 20
-    }
+      perPage: 20,
+    },
   };
 
   source: LocalDataSource = new LocalDataSource();
@@ -89,7 +89,7 @@ export class UsersComponent implements OnInit {
       const { data } = res;
       this.companies = data;
       this.source.load(this.companies);
-     })
+     });
   }
 
   onCreateConfirm(event) {
@@ -97,7 +97,7 @@ export class UsersComponent implements OnInit {
 
     this.usersService.postNewCompany({
       name: company.name,
-      description: company.description
+      description: company.description,
     }).subscribe(res => {
       if (res.data) {
         event.newData['id'] = res.data.id;
@@ -105,7 +105,7 @@ export class UsersComponent implements OnInit {
       } else {
         event.confirm.reject();
       }
-    })
+    });
   }
 
   onSaveConfirm(event): void {
@@ -113,13 +113,13 @@ export class UsersComponent implements OnInit {
     const editedCompany: EditUserForm = {firstName: event.newData.firstName, ...event.newData};
     this.usersService.putCompany(id, editedCompany).subscribe(() => {
       event.confirm.resolve();
-    })
+    });
   }
 
   onDeleteConfirm(event): void {
     this.usersService.deleteCompany(event.data.id).subscribe(() => {
       event.confirm.resolve();
-    })
+    });
   }
 
   ngOnInit(): void {
