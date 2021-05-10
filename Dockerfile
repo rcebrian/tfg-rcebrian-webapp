@@ -1,6 +1,6 @@
 FROM node:14.16-alpine as worker
 
-RUN apk update && apk add python make g++
+RUN apk update && apk add python2 make g++
 
 WORKDIR /app
 COPY ./ /app/
@@ -11,4 +11,5 @@ RUN npm run build:prod
 
 FROM nginx:1.19-alpine
 
-COPY --from=worker /app/dist/ /usr/share/nginx/html
+COPY ./ngnix.conf /etc/nginx/conf.d/default.conf
+COPY dist/ /usr/share/nginx/html
