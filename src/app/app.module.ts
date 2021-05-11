@@ -22,6 +22,9 @@ import {
 import { AuthGuard } from './@core/guards/auth.guard';
 import { RolesGuard } from './@core/guards/roles.guard';
 import { JWTInterceptorService } from './@core/services/jwt-interceptor.service';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [AppComponent],
@@ -38,6 +41,8 @@ import { JWTInterceptorService } from './@core/services/jwt-interceptor.service'
     NbToastrModule.forRoot(),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
   ],
   providers: [
     AuthGuard,
