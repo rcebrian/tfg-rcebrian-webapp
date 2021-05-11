@@ -17,7 +17,7 @@ export class GeoJson implements IGeoJson {
     this.geometry = {
       type: 'Point',
       coordinates: coordinates,
-    }
+    };
   }
 }
 
