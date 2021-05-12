@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MapService } from './map.service';
 import * as mapboxgl from 'mapbox-gl';
 import { FeatureCollection, GeoJson } from '../../../../@core/models/dto/map';
-import { AngularFireList } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -11,6 +10,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./map.component.scss'],
 })
 export class MapComponent implements OnInit {
+
+  @Input() users: number[];
 
   map: mapboxgl.Map | undefined;
   style = `mapbox://styles/mapbox/outdoors-v11`;
@@ -27,7 +28,7 @@ export class MapComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.markers = this.mapService.getMarkers();
+    this.markers = this.mapService.getMarkers(this.users);
     this.initializeMap();
   }
 
@@ -83,7 +84,6 @@ export class MapComponent implements OnInit {
 
       /// subscribe to realtime database and set data source
       this.markers.subscribe(markers => {
-        console.log(markers);
         const data = new FeatureCollection(markers);
         this.source.setData(data);
       });

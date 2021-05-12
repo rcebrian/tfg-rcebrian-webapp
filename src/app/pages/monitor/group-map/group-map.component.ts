@@ -25,7 +25,7 @@ export class GroupMapComponent implements OnInit {
     });
     this.groups.getGroup(this.groupId).subscribe(res => {
       this.contacts = res[0].children;
-      this.getUsers(this.contacts);
+      this.users = this.getUsers(this.contacts);
     });
   }
 

@@ -18,7 +18,7 @@ export class MapService {
     this.mapbox.accessToken = environment.mapbox.accessToken;
   }
 
-  getMarkers(): Observable<any[]> {
+  getMarkers(users: number[]): Observable<any[]> {
     return this.db.
     collection('/dev-devices', (ref) =>
       ref.where('userId', 'in', [106, 188])

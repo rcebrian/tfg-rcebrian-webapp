@@ -11,8 +11,8 @@
           </nb-list-item>
         </nb-list>
       </div>
-      <div class="col-10">
-        <ngx-map></ngx-map>
+      <div class="col-10" *ngIf="users">
+        <ngx-map [users]="users"></ngx-map>
       </div>
     </div>
   </nb-card-body>
