@@ -16,7 +16,10 @@ export class GroupMapComponent implements OnInit {
   constructor(private groups: GroupMapService, private activatedRoute: ActivatedRoute) { }
 
   getUsers(children: []): number[] {
-    return children.map(user => user.data.id);
+    return children.map(user => {
+      console.log(user.data.id);
+      return user.data.id;
+    });
   }
 
   ngOnInit(): void {

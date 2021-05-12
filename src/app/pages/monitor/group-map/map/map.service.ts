@@ -21,8 +21,8 @@ export class MapService {
   getMarkers(users: number[]): Observable<any[]> {
     return this.db.
     collection('/dev-devices', (ref) =>
-      ref.where('userId', 'in', [106, 188])
-        .orderBy('timestamp', 'asc').limitToLast(2))
+      ref.where('userId', 'in', users)
+        .orderBy('timestamp', 'asc').limitToLast(1))
       .snapshotChanges()
       .pipe(
         map(snaps => {
@@ -35,3 +35,24 @@ export class MapService {
       );
   }
 }
+
+
+
+/*     id - timestamp - location
+map ==== [][][][] ======================== firestore [][][][]
+9 nuevo
+
+where (
+  where ( id -1
+    timestamp - limit 1
+  )
+)
+
+ */
+
+
+
+
+
+
+
