@@ -19,7 +19,7 @@ export class MapService {
   }
 
   getMarkers(): Observable<any[]> {
-    return this.db.collection('/dev-devices/106/locations')
+    return this.db.collection('/dev-devices/106/locations', (ref) => ref.orderBy('timestamp', 'asc').limitToLast(1))
       .snapshotChanges()
       .pipe(
         map(snaps => {

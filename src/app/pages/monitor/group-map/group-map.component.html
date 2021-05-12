@@ -1,12 +1,19 @@
-<div class="row" style="min-height: 20cm">
-  <div class="col-12">
-    <nb-card style="height: 100%">
-      <nb-card-header>
-        Group
-      </nb-card-header>
-      <nb-card-body>
+<nb-card style="height: 100%">
+  <nb-card-header>
+    Group
+  </nb-card-header>
+  <nb-card-body>
+    <div class="row" style="min-height: 20cm">
+      <div class="col-2">
+        <nb-list>
+          <nb-list-item class="contact" *ngFor="let c of contacts">
+            <nb-user [name]="c.data.name" [title]="c.data.kind" size="large"></nb-user>
+          </nb-list-item>
+        </nb-list>
+      </div>
+      <div class="col-10">
         <ngx-map></ngx-map>
-      </nb-card-body>
-    </nb-card>
-  </div>
-</div>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import {
   NbCardModule,
-  NbIconModule,
+  NbIconModule, NbListModule,
   NbPopoverModule,
-  NbSearchModule,
+  NbSearchModule, NbUserModule,
 } from '@nebular/theme';
 
 import { ThemeModule } from '../../@theme/theme.module';
@@ -21,6 +21,8 @@ import { MapComponent } from './group-map/map/map.component';
     ThemeModule,
     MonitorRoutingModule,
     NbCardModule,
+    NbListModule,
+    NbUserModule,
   ],
   declarations: [
     MonitorComponent,
