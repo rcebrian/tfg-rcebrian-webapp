@@ -18,10 +18,10 @@ export class MapService {
     this.mapbox.accessToken = environment.mapbox.accessToken;
   }
 
-  getMarkers(users: number[]): Observable<any[]> {
+  getMarkers(users: number): Observable<any[]> {
     return this.db.
     collection('/dev-devices', (ref) =>
-      ref.where('userId', 'in', users)
+      ref.where('userId', '==', users)
         .orderBy('timestamp', 'asc').limitToLast(1))
       .snapshotChanges()
       .pipe(

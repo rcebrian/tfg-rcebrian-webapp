@@ -29,11 +29,8 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
     for (let i = 0; i < this.users.length; i++) {
-      this.markers[i] = this.mapService.getMarkers([this.users[i]]);
+      this.markers[i] = this.mapService.getMarkers(this.users[i]);
     }
-    // this.users.forEach(userId => {
-    //   this.markers[];
-    // });
     this.initializeMap();
   }
 
