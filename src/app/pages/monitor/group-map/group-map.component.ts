@@ -11,8 +11,13 @@ export class GroupMapComponent implements OnInit {
 
   contacts;
   groupId: string;
+  users: number[];
 
   constructor(private groups: GroupMapService, private activatedRoute: ActivatedRoute) { }
+
+  getUsers(children: []): number[] {
+    return children.map(user => user.data.id);
+  }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(params => {
@@ -20,6 +25,7 @@ export class GroupMapComponent implements OnInit {
     });
     this.groups.getGroup(this.groupId).subscribe(res => {
       this.contacts = res[0].children;
+      this.getUsers(this.contacts);
     });
   }
 
