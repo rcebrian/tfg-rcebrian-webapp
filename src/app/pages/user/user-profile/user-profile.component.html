@@ -1,11 +1,11 @@
 <nb-card style="height: 100%">
   <nb-card-header>
-    Group
+    {{ userName | titlecase }}
   </nb-card-header>
   <nb-card-body>
     <div class="row" style="min-height: 20cm">
-      <div class="col-12">
-        <ngx-map [users]="[{id: 189, role: 'ADMIN'}]"></ngx-map>
+      <div class="col-12" *ngIf="mapUser">
+        <ngx-map [users]="mapUser"></ngx-map>
       </div>
     </div>
   </nb-card-body>
