@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class MapComponent implements OnInit {
 
-  @Input() users: number[];
+  @Input() users: any[];
 
   map: mapboxgl.Map | undefined;
   style = `mapbox://styles/mapbox/outdoors-v11`;
@@ -29,7 +29,7 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
     for (let i = 0; i < this.users.length; i++) {
-      this.markers[i] = this.mapService.getMarkers(this.users[i]);
+      this.markers[i] = this.mapService.getMarkers(this.users[i].id);
     }
     this.initializeMap();
   }
@@ -61,7 +61,7 @@ export class MapComponent implements OnInit {
 
       for (let i = 0; i < this.users.length; i++) {
         /// register source
-        this.map.addSource(String(this.users[i]), {
+        this.map.addSource(String(this.users[i].id), {
           type: 'geojson',
           data: {
             type: 'FeatureCollection',
@@ -70,7 +70,7 @@ export class MapComponent implements OnInit {
         });
 
         /// get source
-        this.source[i] = this.map.getSource(String(this.users[i]));
+        this.source[i] = this.map.getSource(String(this.users[i].id));
 
         /// subscribe to realtime database and set data source
         this.markers[i].subscribe(markers => {
@@ -78,14 +78,20 @@ export class MapComponent implements OnInit {
           this.source[i].setData(data);
         });
 
+        const icon = this.users[i].role === 'MONITOR' ? 'airfield-15' : 'rocket-15';
+
         /// create map layers with realtime data
         this.map.addLayer({
-          id: String(this.users[i]),
-          source: String(this.users[i]),
+          id: String(this.users[i].id),
+          source: String(this.users[i].id),
           type: 'symbol',
           layout: {
-            'icon-image': 'rocket-15',
+            'icon-image': icon,
             'text-offset': [0, 1.5],
+          },
+          'paint': {
+            'icon-color': 'red',
+            'icon-halo-color': 'red',
           },
         });
       }
