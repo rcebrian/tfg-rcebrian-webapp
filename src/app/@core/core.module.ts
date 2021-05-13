@@ -1,8 +1,7 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NbAuthJWTToken, NbAuthModule, NbPasswordAuthStrategy } from '@nebular/auth';
-import { NbSecurityModule, NbRoleProvider } from '@nebular/security';
-import { of as observableOf } from 'rxjs';
+import { NbSecurityModule } from '@nebular/security';
 
 import { throwIfAlreadyLoaded } from './module-import-guard';
 import {
@@ -10,35 +9,12 @@ import {
   PlayerService,
   StateService,
 } from './utils';
-import { UserData } from './data/users';
-import { SmartTableData } from './data/smart-table';
-import { UserActivityData } from './data/user-activity';
 
-
-import { UserService } from './mock/users.service';
-import { SmartTableService } from './mock/smart-table.service';
-import { UserActivityService } from './mock/user-activity.service';
-import { MockDataModule } from './mock/mock-data.module';
 
 import { nbAuthConfig } from './config/auth.config';
 import { environment } from '../../environments/environment';
 
-const DATA_SERVICES = [
-  { provide: UserData, useClass: UserService },
-  { provide: SmartTableData, useClass: SmartTableService },
-  { provide: UserActivityData, useClass: UserActivityService },
-];
-
-export class NbSimpleRoleProvider extends NbRoleProvider {
-  getRole() {
-    // here you could provide any role based on any auth flow
-    return observableOf('guest');
-  }
-}
-
 export const NB_CORE_PROVIDERS = [
-  ...MockDataModule.forRoot().providers,
-  ...DATA_SERVICES,
   ...NbAuthModule.forRoot({
 
     strategies: [
@@ -54,7 +30,7 @@ export const NB_CORE_PROVIDERS = [
           method: 'post',
           requireValidToken: true,
           redirect: {
-            success: '/pages/profile',
+            success: '/auth',
             failure: null,
           },
           defaultMessages: ['You have been successfully logged in.'],
@@ -85,10 +61,6 @@ export const NB_CORE_PROVIDERS = [
       },
     },
   }).providers,
-
-  {
-    provide: NbRoleProvider, useClass: NbSimpleRoleProvider,
-  },
   LayoutService,
   PlayerService,
   StateService,
