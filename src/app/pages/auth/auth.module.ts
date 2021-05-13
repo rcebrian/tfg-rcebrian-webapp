@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthRoutingModule } from './auth-routing.module';
 
 import { NbAlertModule, NbButtonModule, NbCheckboxModule, NbInputModule } from '@nebular/theme';
+import { RedirectComponent } from './redirect.component';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { NbAlertModule, NbButtonModule, NbCheckboxModule, NbInputModule } from '
     AuthRoutingModule,
   ],
   declarations: [
+    RedirectComponent,
   ],
 })
 export class AuthModule {
