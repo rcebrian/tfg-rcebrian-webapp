@@ -7,7 +7,7 @@
       <div class="col-2">
         <nb-list>
           <nb-list-item class="contact" *ngFor="let c of contacts">
-            <nb-user [name]="c.data.name" [title]="c.data.kind" size="large"></nb-user>
+            <nb-user [name]="c.data.name" [title]="c.data.kind" size="large" (click)="navigateToUser(c.data.id)"></nb-user>
           </nb-list-item>
         </nb-list>
       </div>

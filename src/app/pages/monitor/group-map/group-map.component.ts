@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GroupMapService } from './group-map.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'ngx-group-map',
@@ -13,7 +13,7 @@ export class GroupMapComponent implements OnInit {
   groupId: string;
   users: any[];
 
-  constructor(private groups: GroupMapService, private activatedRoute: ActivatedRoute) { }
+  constructor(private groups: GroupMapService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   getUsers(children: []): any[] {
     // @ts-ignore
@@ -21,6 +21,10 @@ export class GroupMapComponent implements OnInit {
       // @ts-ignore
       return {id: user.data.id, role: user.data.kind};
     });
+  }
+
+  navigateToUser(userId: number) {
+    this.router.navigate([`/pages/users/${userId}`]);
   }
 
   ngOnInit(): void {
