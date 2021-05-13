@@ -29,5 +29,8 @@ import { MapComponent } from './group-map/map/map.component';
     GroupMapComponent,
     MapComponent,
   ],
+  exports: [
+    MapComponent,
+  ],
 })
 export class MonitorModule { }

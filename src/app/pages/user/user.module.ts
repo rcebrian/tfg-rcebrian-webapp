@@ -7,6 +7,7 @@ import {
 import { ThemeModule } from '../../@theme/theme.module';
 import { UserRoutingModule } from './user-routing.module';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { MonitorModule } from '../monitor/monitor.module';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     NbCardModule,
     NbListModule,
     NbUserModule,
+    MonitorModule,
   ],
   declarations: [
     UserProfileComponent,
