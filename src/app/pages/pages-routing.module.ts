@@ -19,6 +19,11 @@ const routes: Routes = [{
         .then(m => m.MonitorModule),
     },
     {
+      path: 'users',
+      loadChildren: () => import('./user/user.module')
+        .then(m => m.UserModule),
+    },
+    {
       path: 'layout',
       loadChildren: () => import('./layout/layout.module')
         .then(m => m.LayoutModule),

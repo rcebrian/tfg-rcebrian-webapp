@@ -8,6 +8,7 @@ import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { ProfileModule } from './profile/profile.module';
 import { ManagementModule } from './management/management.module';
 import { MonitorModule } from './monitor/monitor.module';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { MonitorModule } from './monitor/monitor.module';
     ProfileModule,
     ManagementModule,
     MonitorModule,
+    UserModule,
   ],
   declarations: [
     PagesComponent,
