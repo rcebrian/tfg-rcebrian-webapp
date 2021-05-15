@@ -30,10 +30,10 @@ export class GroupMapComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(params => {
       this.groupId = params.get('id');
-    });
-    this.groups.getGroup(this.groupId).subscribe(res => {
-      this.contacts = res[0].children;
-      this.users = this.getUsers(this.contacts);
+      this.groups.getGroup(this.groupId).subscribe(res => {
+        this.contacts = res[0].children;
+        this.users = this.getUsers(this.contacts);
+      });
     });
   }
 
