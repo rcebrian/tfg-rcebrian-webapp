@@ -37,6 +37,7 @@ export const environment = {
     signOut: `/signOut`,
     signUp: `${authBase}/signUp`,
     getRoles: `${authBase}/roles`,
+    changePass: `${authBase}/change-password`,
   },
   users: {
     getAllUsers: `${usersBase}`,
