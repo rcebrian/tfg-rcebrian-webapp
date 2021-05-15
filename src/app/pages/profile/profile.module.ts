@@ -7,7 +7,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule as ngFormsModule, FormsModule } from '@angular/forms';
+import { FormsModule as ngFormsModule, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileRoutingModule } from './profile-routing.module';
 
 import { ProfileComponent } from './profile/profile.component';
@@ -15,7 +15,7 @@ import {
   NbActionsModule,
   NbButtonModule,
   NbCardModule,
-  NbCheckboxModule, NbDatepickerModule, NbIconModule,
+  NbCheckboxModule, NbDatepickerModule, NbFormFieldModule, NbIconModule,
   NbInputModule, NbRadioModule, NbSelectModule,
   NbUserModule,
 } from '@nebular/theme';
@@ -43,6 +43,8 @@ import { EditInfoComponent } from './profile/edit-info/edit-info.component';
     NbIconModule,
     ngFormsModule,
     ProfileRoutingModule,
+    ReactiveFormsModule,
+    NbFormFieldModule,
   ],
   declarations: [
     ProfileComponent,
