@@ -32,7 +32,7 @@ export class GroupsService {
   }
 
   postNewGroup(newGroup: GroupForm): Observable<any> {
-    const url = environment.groups.postNewGroup.replace(':companyId', String(newGroup.companyId));
+    const url = environment.groups.postNewGroup;
     return this.httpClient.post(url, newGroup);
   }
 }
