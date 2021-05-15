@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MapService } from './map.service';
 import * as mapboxgl from 'mapbox-gl';
-import { FeatureCollection, GeoJson } from '../../../../@core/models/dto/map';
+import { FeatureCollection } from '../../../../@core/models/dto/map';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -46,15 +46,8 @@ export class MapComponent implements OnInit {
       center: [this.lng, this.lat],
     });
 
-
     /// Add map controls
     this.map.addControl(new mapboxgl.NavigationControl());
-
-    //// Add Marker on Click
-    this.map.on('click', (event) => {
-      const coordinates = [event.lngLat.lng, event.lngLat.lat];
-    });
-
 
     /// Add realtime firebase data on map load
     this.map.on('load', (event) => {
@@ -96,14 +89,6 @@ export class MapComponent implements OnInit {
         });
       }
 
-    });
-
-  }
-
-  flyTo(data: GeoJson) {
-    this.map.flyTo({
-      // @ts-ignore
-      center: [this.lng, this.lat],
     });
   }
 }
