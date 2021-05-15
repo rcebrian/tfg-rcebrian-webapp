@@ -3,7 +3,6 @@ import { MapService } from './map.service';
 import * as mapboxgl from 'mapbox-gl';
 import { FeatureCollection } from '../../../../@core/models/dto/map';
 import { Observable } from 'rxjs';
-import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'ngx-map',
