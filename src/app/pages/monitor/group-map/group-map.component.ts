@@ -24,7 +24,7 @@ export class GroupMapComponent implements OnInit {
   }
 
   navigateToUser(userId: number) {
-    this.router.navigate([`/pages/users/${userId}`]).then(r => window.location.reload());
+    this.router.navigate([`/pages/users/${userId}`]).then(ignored => {});
   }
 
   ngOnInit(): void {

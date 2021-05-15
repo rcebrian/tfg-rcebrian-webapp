@@ -3,6 +3,7 @@ import { MapService } from './map.service';
 import * as mapboxgl from 'mapbox-gl';
 import { FeatureCollection } from '../../../../@core/models/dto/map';
 import { Observable } from 'rxjs';
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'ngx-map',
@@ -24,8 +25,7 @@ export class MapComponent implements OnInit {
   source: Array<any> = new Array<any>();
   markers: Array<Observable<any>> = new Array<Observable<any>>();
 
-  constructor(private mapService: MapService) {
-  }
+  constructor(private mapService: MapService) { }
 
   ngOnInit() {
     for (let i = 0; i < this.users.length; i++) {
