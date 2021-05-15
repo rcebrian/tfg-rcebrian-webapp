@@ -7,6 +7,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {
+  NbAuthComponent,
   NbLoginComponent,
   NbLogoutComponent,
 } from '@nebular/auth';
@@ -16,7 +17,7 @@ import { RedirectComponent } from './redirect.component';
 export const routes: Routes = [
   {
     path: '',
-    component: RedirectComponent,
+    component: NbAuthComponent,
     children: [
       {
         path: 'login',
@@ -27,7 +28,12 @@ export const routes: Routes = [
         canActivate: [AuthGuard],
         component: NbLogoutComponent,
       },
-      { path: '**', redirectTo: '' },
+      {
+        path: 'redirect',
+        canActivate: [AuthGuard],
+        component: RedirectComponent,
+      },
+      { path: '**', redirectTo: 'redirect' },
     ],
   },
 ];
