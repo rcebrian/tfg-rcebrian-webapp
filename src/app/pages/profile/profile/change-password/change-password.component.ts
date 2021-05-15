@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { NbComponentStatus, NbToastrService } from '@nebular/theme';
+import { ChangePasswordService } from './change-password.service';
 
 @Component({
   selector: 'ngx-change-password',
@@ -14,7 +16,7 @@ export class ChangePasswordComponent implements OnInit {
   showNewPassword = false;
   showNewConfirmPassword = false;
 
-  constructor() { }
+  constructor( private changePasswordService: ChangePasswordService,  private toastrService: NbToastrService) { }
 
   getTypeInputOldPassword = () => (this.showOldPassword) ? 'text' : 'password';
   getTypeInputNewPassword = () => (this.showNewPassword) ? 'text' : 'password';
@@ -32,11 +34,33 @@ export class ChangePasswordComponent implements OnInit {
     this.showNewConfirmPassword = !this.showNewConfirmPassword;
   }
 
+  private showToast(body: string) {
+    const config = {
+      status: 'danger',
+      destroyByClick: true,
+      duration: 2000,
+      hasIcon: false,
+      position: 'top-right',
+      preventDuplicates: false,
+    };
+
+    // @ts-ignore
+    this.toastrService.show(body, 'Failed to change password', config);
+  }
+
 
   submitPassword = () => {
-    // console.log(`this.inputOldPassword => ${this.inputOldPassword}`);
-    // console.log(`this.inputNewPassword => ${this.inputNewPassword}`);
-    // console.log(`this.inputRepeatNewPassword => ${this.inputRepeatNewPassword}`);
+    this.changePasswordService.changePassword({
+      oldPassword: this.inputOldPassword.value,
+      password: this.inputNewPassword.value,
+      confirmPassword: this.inputRepeatNewPassword.value,
+    })
+      .subscribe(
+        data => {},
+        error => {
+          error.error.error.errors.forEach(err => this.showToast(err));
+        },
+      );
   }
 
   ngOnInit(): void {
