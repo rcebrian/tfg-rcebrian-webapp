@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class RedirectComponent implements OnInit {
 
-  constructor(private authService: NbAuthService, private router: Router ) { }
+  constructor(private authService: NbAuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.authService.getToken().subscribe(token => {
@@ -18,7 +18,7 @@ export class RedirectComponent implements OnInit {
             this.router.navigate(['/pages/groups']).then(ignored => {});
             break;
           case 'ROLE_USER':
-            this.router.navigate(['/pages/profile']).then(ignored => {});
+            this.router.navigate([`/pages/users/${userInfo.id}`]).then(ignored => {});
             break;
           case 'ROLE_ADMIN':
             this.router.navigate(['/pages/management/company']).then(ignored => {});
