@@ -15,9 +15,9 @@ export class MapComponent implements OnInit {
 
   map: mapboxgl.Map | undefined;
   style = `mapbox://styles/mapbox/outdoors-v11`;
-  // Coordenadas de la localización donde queremos centrar el mapa
-  lat = 40.4293283;
-  lng = -3.7046224;
+  // Coordenadas de la localización donde queremos centrar el mapa (UEM)
+  lat = 40.3730648;
+  lng = -3.9212715;
   zoom = 15;
 
   // data
@@ -34,6 +34,15 @@ export class MapComponent implements OnInit {
   }
 
   private initializeMap() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        this.lat = position.coords.latitude;
+        this.lng = position.coords.longitude;
+        this.map.flyTo({
+          center: [this.lng, this.lat],
+        });
+      });
+    }
     this.buildMap();
   }
 
