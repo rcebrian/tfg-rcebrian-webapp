@@ -12,4 +12,4 @@ RUN npm run build:prod
 FROM nginx:1.19-alpine
 
 COPY ./ngnix.conf /etc/nginx/conf.d/default.conf
-COPY dist/ /usr/share/nginx/html
+COPY --from=worker /app/dist/ /usr/share/nginx/html
