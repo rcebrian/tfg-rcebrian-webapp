@@ -20,7 +20,7 @@ export class MapService {
 
   getMarkers(users: number): Observable<any[]> {
     return this.db.
-    collection('/dev-devices', (ref) =>
+    collection(environment.firebase.collection, (ref) =>
       ref.where('userId', '==', users)
         .orderBy('timestamp', 'asc').limitToLast(1))
       .snapshotChanges()
