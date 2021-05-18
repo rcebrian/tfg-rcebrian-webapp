@@ -1,6 +1,11 @@
-FROM node:14.16-alpine as worker
+FROM node:12.22.1-alpine as worker
 
-RUN apk update && apk add python2 make g++
+RUN apk update
+RUN apk --no-cache --virtual build-dependencies add \
+    python \
+    make \
+    g++ \
+    bash
 
 WORKDIR /app
 COPY ./ /app/
