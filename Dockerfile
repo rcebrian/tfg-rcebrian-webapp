@@ -13,3 +13,4 @@ FROM nginx:1.19-alpine
 
 COPY ./ngnix.conf /etc/nginx/conf.d/default.conf
 COPY --from=worker /app/dist/ /usr/share/nginx/html
+EXPOSE 8080
