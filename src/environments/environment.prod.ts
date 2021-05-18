@@ -3,9 +3,9 @@
  * Copyright Akveo. All Rights Reserved.
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
-const authBase = `https://final-bh0vqo4j.nw.gateway.dev/api/auth`;
-const usersBase = `http://localhost:3001/api/users`;
-const companyBase = `http://localhost:3002/api/company`;
+const authBase = `/api/auth`;
+const usersBase = `/api/users`;
+const companyBase = `/api/company`;
 
 export const environment = {
   production: true,
@@ -22,6 +22,10 @@ export const environment = {
     storageBucket: 'tfg-rcebrian-2021-310618.appspot.com',
     messagingSenderId: '899064417187',
     appId: '1:899064417187:web:a0e2f2e93bd358abc4a816',
+  },
+
+  firebase: {
+    collection: '/pro-devices',
   },
 
   authBase: authBase,
@@ -55,4 +59,3 @@ export const environment = {
   },
 
 };
-

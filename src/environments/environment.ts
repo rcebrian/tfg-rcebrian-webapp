@@ -8,9 +8,9 @@
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
-const authBase = `https://final-bh0vqo4j.nw.gateway.dev/api/auth`;
-const usersBase = `https://final-bh0vqo4j.nw.gateway.dev/api/users`;
-const companyBase = `https://final-bh0vqo4j.nw.gateway.dev/api/company`;
+const authBase = `https://dev-tfg-rcebrian-bh0vqo4j.ew.gateway.dev/api/auth`;
+const usersBase = `https://dev-tfg-rcebrian-bh0vqo4j.ew.gateway.dev/api/users`;
+const companyBase = `https://dev-tfg-rcebrian-bh0vqo4j.ew.gateway.dev/api/company`;
 
 export const environment = {
   production: false,
@@ -27,6 +27,10 @@ export const environment = {
     storageBucket: 'tfg-rcebrian-2021-310618.appspot.com',
     messagingSenderId: '899064417187',
     appId: '1:899064417187:web:a0e2f2e93bd358abc4a816',
+  },
+
+  firebase: {
+    collection: '/dev-devices',
   },
 
   authBase: authBase,
