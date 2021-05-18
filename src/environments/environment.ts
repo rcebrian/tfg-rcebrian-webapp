@@ -9,8 +9,8 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 const authBase = `https://final-bh0vqo4j.nw.gateway.dev/api/auth`;
-const usersBase = `http://localhost:3001/api/users`;
-const companyBase = `http://localhost:3002/api/company`;
+const usersBase = `https://final-bh0vqo4j.nw.gateway.dev/api/users`;
+const companyBase = `https://final-bh0vqo4j.nw.gateway.dev/api/company`;
 
 export const environment = {
   production: false,

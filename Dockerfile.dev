@@ -7,7 +7,7 @@ COPY ./ /app/
 
 # Instala y construye el Angular App
 RUN npm ci
-RUN npm run build:prod
+RUN npm run build
 
 FROM nginx:1.19-alpine
 
