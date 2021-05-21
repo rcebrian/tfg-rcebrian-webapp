@@ -2,8 +2,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import { PagesComponent } from './pages.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 
 const routes: Routes = [{
@@ -11,17 +9,29 @@ const routes: Routes = [{
   component: PagesComponent,
   children: [
     {
-      path: 'dashboard',
-      component: ECommerceComponent,
+      path: 'management',
+      loadChildren: () => import('./management/management.module')
+        .then(m => m.ManagementModule),
     },
     {
-      path: 'iot-dashboard',
-      component: DashboardComponent,
+      path: 'groups',
+      loadChildren: () => import('./monitor/monitor.module')
+        .then(m => m.MonitorModule),
+    },
+    {
+      path: 'users',
+      loadChildren: () => import('./user/user.module')
+        .then(m => m.UserModule),
     },
     {
       path: 'layout',
       loadChildren: () => import('./layout/layout.module')
         .then(m => m.LayoutModule),
+    },
+    {
+      path: 'profile',
+      loadChildren: () => import('./profile/profile.module')
+        .then(m => m.ProfileModule),
     },
     {
       path: 'forms',
@@ -39,16 +49,6 @@ const routes: Routes = [{
         .then(m => m.ModalOverlaysModule),
     },
     {
-      path: 'extra-components',
-      loadChildren: () => import('./extra-components/extra-components.module')
-        .then(m => m.ExtraComponentsModule),
-    },
-    {
-      path: 'charts',
-      loadChildren: () => import('./charts/charts.module')
-        .then(m => m.ChartsModule),
-    },
-    {
       path: 'tables',
       loadChildren: () => import('./tables/tables.module')
         .then(m => m.TablesModule),
@@ -60,7 +60,7 @@ const routes: Routes = [{
     },
     {
       path: '',
-      redirectTo: 'dashboard',
+      redirectTo: 'profile',
       pathMatch: 'full',
     },
     {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'ngx-one-column-layout',
@@ -6,10 +6,10 @@ import { Component } from '@angular/core';
   template: `
     <nb-layout windowMode>
       <nb-layout-header fixed>
-        <ngx-header></ngx-header>
+        <ngx-header [isNotUser]="isNotUser"></ngx-header>
       </nb-layout-header>
 
-      <nb-sidebar class="menu-sidebar" tag="menu-sidebar" responsive>
+      <nb-sidebar *ngIf="isNotUser" class="menu-sidebar" tag="menu-sidebar" responsive>
         <ng-content select="nb-menu"></ng-content>
       </nb-sidebar>
 
@@ -23,4 +23,8 @@ import { Component } from '@angular/core';
     </nb-layout>
   `,
 })
-export class OneColumnLayoutComponent {}
+export class OneColumnLayoutComponent {
+
+  @Input() isNotUser: boolean;
+
+}

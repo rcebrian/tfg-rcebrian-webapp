@@ -1,6 +1,11 @@
-FROM node:14.16-alpine as worker
+FROM node:12.22.1-alpine as worker
 
-RUN apk update && apk add python make g++
+RUN apk update
+RUN apk --no-cache --virtual build-dependencies add \
+    python \
+    make \
+    g++ \
+    bash
 
 WORKDIR /app
 COPY ./ /app/
@@ -11,4 +16,6 @@ RUN npm run build:prod
 
 FROM nginx:1.19-alpine
 
+COPY ./ngnix.conf /etc/nginx/conf.d/default.conf
 COPY --from=worker /app/dist/ /usr/share/nginx/html
+EXPOSE 8080 80

@@ -6,13 +6,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import {
-  NbChatModule,
   NbDatepickerModule,
   NbDialogModule,
   NbMenuModule,
@@ -20,6 +19,12 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
+import { AuthGuard } from './@core/guards/auth.guard';
+import { RolesGuard } from './@core/guards/roles.guard';
+import { JWTInterceptorService } from './@core/services/jwt-interceptor.service';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,11 +39,19 @@ import {
     NbDialogModule.forRoot(),
     NbWindowModule.forRoot(),
     NbToastrModule.forRoot(),
-    NbChatModule.forRoot({
-      messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
-    }),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+  ],
+  providers: [
+    AuthGuard,
+    RolesGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JWTInterceptorService,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })

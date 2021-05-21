@@ -35,14 +35,9 @@
               "src/app/@theme/styles/styles.scss"
             ],
             "scripts": [
-              "node_modules/pace-js/pace.min.js",
-              "node_modules/echarts/dist/echarts.min.js",
-              "node_modules/echarts/dist/extension/bmap.min.js",
-              "node_modules/chart.js/dist/Chart.min.js"
+              "node_modules/pace-js/pace.min.js"
             ],
             "allowedCommonJsDependencies": [
-              "angular2-chartjs",
-              "echarts",
               "lodash",
               "zrender/lib/svg/svg",
               "zrender/lib/vml/vml"
@@ -98,10 +93,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [
-              "node_modules/pace-js/pace.min.js",
-              "node_modules/echarts/dist/echarts.min.js",
-              "node_modules/echarts/dist/extension/bmap.min.js",
-              "node_modules/chart.js/dist/Chart.min.js"
+              "node_modules/pace-js/pace.min.js"
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.css",

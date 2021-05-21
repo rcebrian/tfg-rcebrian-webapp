@@ -6,11 +6,14 @@ import { FormInputsComponent } from './form-inputs/form-inputs.component';
 import { FormLayoutsComponent } from './form-layouts/form-layouts.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 import { ButtonsComponent } from './buttons/buttons.component';
+import { RolesGuard } from '../../@core/guards/roles.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: FormsComponent,
+    canActivate: [RolesGuard],
+    data: { roles: ['ROLE_ADMIN', 'ROLE_MONITOR'] },
     children: [
       {
         path: 'inputs',

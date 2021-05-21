@@ -1,0 +1,84 @@
+<div class="row">
+  <div class="col-12">
+    <nb-card class="inline-form-card">
+      <nb-card-header>Create group</nb-card-header>
+      <nb-card-body>
+        <form class="form-inline" [formGroup]="groupForm">
+
+          <input nbInput id="name" type="text" placeholder="Group Name" formControlName="name"
+                 [status]="name.invalid && name.touched ? 'danger' : (name.valid ? 'success' : 'basic')" fullWidth required>
+
+          <input type="text" nbInput fullWidth placeholder="Group description" formControlName="description"
+                 [status]="description.invalid && description.touched ? 'danger' : (description.valid ? 'success' : 'basic')" required>
+
+          <nb-select selected="0" placeholder="Company" style="width: 300px" formControlName="companyId" [status]="companyId.invalid && companyId.touched ? 'danger' : (companyId.valid ? 'success' : 'basic')" required>
+            <nb-option *ngFor="let company of companiesSelect" value="{{ company.id }}">{{ company.id }} - {{ company.name }}</nb-option>
+          </nb-select>
+          <button type="submit" nbButton status="primary" (click)="submitNewGroup()"
+                  [disabled]="!(name.valid && description.valid && companyId.valid)">Create
+          </button>
+        </form>
+        <div class="row">
+          <div class="col-4">
+            <ng-container *ngIf="name.invalid && name.touched">
+              <p class="caption status-danger" *ngIf="name.errors?.required">
+                Company name is required!
+              </p>
+            </ng-container>
+          </div>
+          <div class="col-4">
+            <ng-container *ngIf="description.invalid && description.touched">
+              <p class="caption status-danger" *ngIf="description.errors?.required">
+                Company description is required!
+              </p>
+            </ng-container>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <nb-card accent="info">
+    <nb-card-header>
+      Groups
+    </nb-card-header>
+    <nb-card-body>
+      <nb-form-field>
+        <nb-icon nbPrefix icon="search-outline" pack="eva"></nb-icon>
+        <!-- <label class="search-label" for="search">Search:</label> -->
+        <input nbInput [nbFilterInput]="dataSource" id="search" >
+      </nb-form-field>
+
+      <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" equalColumnsWidth="true" (sort)="updateSort($event)">
+
+        <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
+        <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns">
+        </tr>
+
+        <ng-container [nbTreeGridColumnDef]="customColumn">
+          <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(customColumn)" *nbTreeGridHeaderCellDef>
+            {{customColumn}}
+          </th>
+          <td nbTreeGridCell *nbTreeGridCellDef="let row">
+            <ngx-fs-icon [kind]="row.data.kind" [id]="row.data.id" [expanded]="row.expanded"></ngx-fs-icon>
+            {{row.data[customColumn]}}
+          </td>
+        </ng-container>
+
+        <ng-container *ngFor="let column of defaultColumns; let index = index"
+                      [nbTreeGridColumnDef]="column"
+                      [showOn]="getShowOn(index)">
+          <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(column)" *nbTreeGridHeaderCellDef>
+            {{column}}
+          </th>
+          <td nbTreeGridCell *nbTreeGridCellDef="let row" (click)="isGroup(row.data.kind) ? navigateToGroup(row.data.id) : ''">{{row.data[column] || '-'}}</td>
+        </ng-container>
+
+      </table>
+
+    </nb-card-body>
+  </nb-card>
+  </div>
+</div>

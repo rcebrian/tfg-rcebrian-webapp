@@ -1,0 +1,12 @@
+<nb-card style="height: 100%">
+  <nb-card-header>
+    {{ userName | titlecase }}
+  </nb-card-header>
+  <nb-card-body>
+    <div class="row" style="min-height: 20cm">
+      <div class="col-12" *ngIf="mapUser">
+        <ngx-map [users]="mapUser"></ngx-map>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
