@@ -8,9 +8,13 @@
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
-const authBase = `https://dev-tfg-rcebrian-bh0vqo4j.ew.gateway.dev/api/auth`;
-const usersBase = `https://dev-tfg-rcebrian-bh0vqo4j.ew.gateway.dev/api/users`;
-const companyBase = `https://dev-tfg-rcebrian-bh0vqo4j.ew.gateway.dev/api/company`;
+const authBase = `https://develop-bh0vqo4j.nw.gateway.dev/api/auth`;
+const usersBase = `https://develop-bh0vqo4j.nw.gateway.dev/api/users`;
+const companyBase = `https://develop-bh0vqo4j.nw.gateway.dev/api/company`;
+
+// const authBase = `http://localhost:3000/api/auth`;
+// const usersBase = `http://localhost:3001/api/users`;
+// const companyBase = `http://localhost:3002/api/company`;
 
 export const environment = {
   production: false,
